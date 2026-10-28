@@ -1,0 +1,44 @@
+---
+// S6 · Chi lo fa: dopo le prove (ratifica #204). Foto + testo ≤ 60 parole (il momento di svolta,
+// non il CV) + 3-5 fatti a elenco ≤ 12 parole (#200 c).
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import KxSezione from "./KxSezione.astro";
+import { tetto, quante, type Fondo } from "./scheletro";
+
+interface Props { titolo: string; foto: ImageMetadata; fotoAlt: string; testo: string; fatti: string[]; fondo?: Fondo; id?: string; }
+
+const S = "S6 Chi lo fa";
+const { titolo, foto, fotoAlt, testo, fondo = "crema", id } = Astro.props;
+tetto(S, "H2", titolo, 8);
+tetto(S, "testo", testo, 60);
+const fatti = quante(S, "fatti", Astro.props.fatti, 3, 5);
+fatti.forEach((f, i) => tetto(S, `fatto ${i + 1}`, f, 12));
+---
+
+<KxSezione fondo={fondo} id={id} etichetta="Chi lo fa">
+  <div class="kxc">
+    <Image src={foto} alt={fotoAlt} widths={[320, 640]} sizes="(min-width: 768px) 360px, 70vw" class="kxc-foto" />
+    <div>
+      <h2 class="kxv-h2 kxc-h2" set:html={titolo} />
+      <p class="kxv-testo kxc-t" set:html={testo} />
+      <ul class="kxc-fatti">
+        {fatti.map((f) => <li class="kxv-testo" set:html={f} />)}
+      </ul>
+    </div>
+  </div>
+</KxSezione>
+
+<style>
+  .kxc { display: grid; gap: 32px; justify-items: center; }
+  .kxc :global(.kxc-foto) { width: min(200px, 55vw); aspect-ratio: 1; height: auto; object-fit: cover; object-position: top; border-radius: 16px; box-shadow: var(--shadow-card); }
+  .kxc-t { margin-top: 24px; }
+  .kxc-fatti { margin: 24px 0 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+  .kxc-fatti li { position: relative; padding-left: 1.6rem; }
+  .kxc-fatti li::before { content: ""; position: absolute; left: 0.2rem; top: 0.6em; width: 0.6rem; height: 0.6rem; border-radius: 2px; background: hsl(var(--gold)); }
+  @media (min-width: 768px) {
+    .kxc { grid-template-columns: 360px 1fr; gap: 64px; align-items: center; justify-items: stretch; }
+    .kxc :global(.kxc-foto) { width: 100%; aspect-ratio: 4 / 5; }
+    .kxc-h2 { text-align: left; }
+  }
+</style>

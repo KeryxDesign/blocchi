@@ -1,0 +1,73 @@
+---
+// Un blocco di vendita da solo, con testi di esempio. Serve alle anteprime telefono/computer di /blocchi/.
+// Interno, noindex dal layout.
+import Layout from "../../layouts/Base.astro";
+import { BLOCCHI } from "../../data/blocchi-vendita";
+import KxApertura from "../../components/vendita/KxApertura.astro";
+import KxModulo from "../../components/vendita/KxModulo.astro";
+import KxProblema from "../../components/vendita/KxProblema.astro";
+import KxMeccanismo from "../../components/vendita/KxMeccanismo.astro";
+import KxLavori from "../../components/vendita/KxLavori.astro";
+import KxVoci from "../../components/vendita/KxVoci.astro";
+import KxChi from "../../components/vendita/KxChi.astro";
+import KxCosaRicevi from "../../components/vendita/KxCosaRicevi.astro";
+import KxPassi from "../../components/vendita/KxPassi.astro";
+import KxPrezzo from "../../components/vendita/KxPrezzo.astro";
+import KxGaranzia from "../../components/vendita/KxGaranzia.astro";
+import KxFaq from "../../components/vendita/KxFaq.astro";
+import KxChiusura from "../../components/vendita/KxChiusura.astro";
+import { Image } from "astro:assets";
+import hero from "../../assets/libri-business/hero-libri-keryx-marmo.webp";
+import mockup from "../../assets/libri-business/mockup-pdf-esempi.webp";
+import davide from "../../assets/libri-business/davide-viso-spalle.webp";
+import dallan from "../../assets/libri-business/dentro-dallan.webp";
+import vino from "../../assets/libri-business/dentro-manifesto-vino.webp";
+import arlecchino from "../../assets/libri-business/dentro-arlecchino.webp";
+import massimo from "../../assets/libri-business/dentro-massimo-rendimento.webp";
+import fotoA from "../../assets/testimonials/andrea-dallan.webp";
+import fotoB from "../../assets/testimonials/marco-chiellini.webp";
+import fotoC from "../../assets/testimonials/fabio-cagnetti.webp";
+
+export function getStaticPaths() {
+  return BLOCCHI.map((b) => ({ params: { id: b.id } }));
+}
+const { id } = Astro.params;
+const copertine = Object.values(import.meta.glob<{ default: ImageMetadata }>("../../assets/libri-business/carosello/*.webp", { eager: true })).map((m) => ({ img: m.default, alt: "Copertina di esempio" }));
+const cta = { testo: "Testo del bottone", href: "#" };
+const lavori = [dallan, vino, arlecchino, massimo].map((img) => ({ img, alt: "Libro di esempio", didascalia: "Titolo del libro, autore." }));
+const voce = (foto: ImageMetadata, nome: string) => ({ citazione: "Una frase vera del cliente, a parole sue, che dice cosa è cambiato dopo il lavoro.", nome, ruolo: "Ruolo del cliente", foto });
+---
+<Layout title="Blocco di esempio | Keryx Design">
+  {id === "apertura" && <KxApertura qualifica="Per chi ha già il testo." titolo="Titolo principale in nove parole al massimo." sottotitolo="Sottotitolo che spiega cosa ricevi e in quanto tempo." immagine={hero} immagineAlt="Esempio" cta={cta} />}
+  {id === "modulo" && <KxModulo titolo="Titolo del modulo." riga="Una riga che dice cosa arriva e quando."><Image slot="immagine" src={mockup} alt="Mockup" widths={[360, 720]} sizes="300px" /><input type="email" placeholder="La tua email" class="kq-input" aria-label="Email" /></KxModulo>}
+  {id === "problema" && <KxProblema titolo="Perché tanti restano inosservati." voci={[
+    { titolo: "Primo problema", testo: "Una frase breve che nomina il problema e la sua conseguenza." },
+    { titolo: "Secondo problema", testo: "Una frase breve che nomina il problema e la sua conseguenza." },
+    { titolo: "Terzo problema", testo: "Una frase breve che nomina il problema e la sua conseguenza." },
+    { titolo: "Il costo vero", testo: "L'ultima voce nomina quanto costa non risolverlo." }]} />}
+  {id === "meccanismo" && <KxMeccanismo titolo="Perché io e non un altro." lead="Tre motivi, ognuno con la sua prova." fondo="grigio" colonne={[
+    { titolo: "Primo motivo", testo: "Una prova concreta in non più di venticinque parole." },
+    { titolo: "Secondo motivo", testo: "Una prova concreta in non più di venticinque parole." },
+    { titolo: "Terzo motivo", testo: "Una prova concreta in non più di venticinque parole." }]} />}
+  {id === "lavori" && <KxLavori titolo="Lavori usciti davvero." fondo="notte" copertine={copertine} lavori={lavori} altri={{ testo: "Guarda gli altri lavori", href: "#" }} />}
+  {id === "voci" && <KxVoci titolo="Chi ha lavorato con me." fondo="marmo" voci={[voce(fotoA, "Nome Cognome"), voce(fotoB, "Nome Cognome"), voce(fotoC, "Nome Cognome")]} />}
+  {id === "chi" && <KxChi titolo="Ci lavoro io." foto={davide} fotoAlt="Ritratto" fondo="navy" testo="Due o tre frasi su chi sei e perché fai questo lavoro." fatti={["Un fatto verificabile.", "Un altro fatto verificabile.", "Un terzo fatto verificabile."]} />}
+  {id === "cosa-ricevi" && <KxCosaRicevi titolo="Cosa c'è in tutti i pacchetti." dentro={["Prima cosa compresa.", "Seconda cosa compresa.", "Terza cosa compresa.", "Quarta cosa compresa."]} fuori={["Prima cosa esclusa.", "Seconda cosa esclusa."]} />}
+  {id === "passi" && <KxPassi titolo="Come funziona." fondo="grigio" passi={[
+    { quando: "Subito", titolo: "Primo passo", testo: "Cosa succede e cosa fai tu." },
+    { quando: "Dopo una settimana", titolo: "Secondo passo", testo: "Cosa succede e cosa fai tu." },
+    { quando: "Alla fine", titolo: "Terzo passo", testo: "Cosa succede e cosa fai tu." }]} />}
+  {id === "prezzo" && <KxPrezzo titolo="Tre pacchetti, prezzo scritto." fondo="crema" perche="Una frase che spiega perché costa così." pagamento="Quanto alla firma e quanto dopo." pacchetti={[
+    { nome: "Base", prezzo: "950&nbsp;€", perChi: "Per chi vuole solo l'essenziale.", voci: ["Prima voce", "Seconda voce"], cta },
+    { nome: "Completo", prezzo: "1.550&nbsp;€", perChi: "Per chi vuole di più.", evidenza: true, incluso: "Tutto il pacchetto Base, più:", voci: ["Prima voce", "Seconda voce"], cta },
+    { nome: "Esteso", prezzo: "3.050&nbsp;€", perChi: "Per chi vuole tutto.", incluso: "Tutto il pacchetto Completo, più:", voci: ["Prima voce", "Seconda voce"], cta }]} />}
+  {id === "garanzia" && <KxGaranzia titolo="Titolo della garanzia." testo="Cosa succede se non funziona, in poche frasi." condizioni="Condizioni in una riga." />}
+  {id === "faq" && <KxFaq fondo="grigio" domande={[
+    { domanda: "Prima domanda?", risposta: "Risposta breve." },
+    { domanda: "Seconda domanda?", risposta: "Risposta breve." },
+    { domanda: "Terza domanda?", risposta: "Risposta breve." },
+    { domanda: "Quarta domanda?", risposta: "Risposta breve." },
+    { domanda: "Quinta domanda?", risposta: "Risposta breve." }]} />}
+  {id === "chiusura" && <KxChiusura titolo="Prima di decidere, guarda." fondo="notte" cta={cta} condizioni={["Prima condizione.", "Seconda condizione.", "Terza condizione."]} ps="Una riga finale, facoltativa." />}
+</Layout>
+

@@ -1,0 +1,14 @@
+---
+// Bottone primario oro (livello 1). Testo ≤ 5 parole.
+import { tetto, type Azione } from "./scheletro";
+
+interface Props {
+  sezione: string;
+  azione: Azione;
+}
+
+const { sezione, azione } = Astro.props;
+tetto(sezione, "CTA", azione.testo, 5);
+---
+
+<a href={azione.href} class="kxv-cta btn-gold">{azione.testo}</a>

@@ -1,0 +1,40 @@
+---
+// S8 · Come funziona (B6): l'unico blocco che toglie l'ansia. 3-5 passi numerati: titolo ≤ 5 parole,
+// testo ≤ 25, uscita e tempo ≤ 8. Call, revisioni e materiali del cliente stanno dentro i passi.
+import KxSezione from "./KxSezione.astro";
+import KxTesta from "./KxTesta.astro";
+import { tetto, quante, type Fondo } from "./scheletro";
+
+interface Passo { titolo: string; testo: string; quando: string; }
+interface Props { titolo: string; passi: Passo[]; fondo?: Fondo; id?: string; }
+
+const S = "S8 Come funziona";
+const { titolo, fondo = "crema", id } = Astro.props;
+const passi = quante(S, "passi", Astro.props.passi, 3, 5);
+passi.forEach((p, i) => { tetto(S, `passo ${i + 1} titolo`, p.titolo, 5); tetto(S, `passo ${i + 1} testo`, p.testo, 25); tetto(S, `passo ${i + 1} quando`, p.quando, 8); });
+---
+
+<KxSezione fondo={fondo} id={id} etichetta="Come funziona">
+  <KxTesta sezione={S} titolo={titolo} maxTitolo={10} />
+  <ol class="kxs">
+    {passi.map((p, i) => (
+      <li class="kxs-p">
+        <span class="kxs-n" aria-hidden="true">{i + 1}</span>
+        <div class="kxv-riquadro">
+          <p class="kxv-dettaglio kxs-q" set:html={p.quando} />
+          <h3 class="kxv-h3" set:html={p.titolo} />
+          <p class="kxv-testo kxs-t" set:html={p.testo} />
+        </div>
+      </li>
+    ))}
+  </ol>
+</KxSezione>
+
+<style>
+  .kxs { list-style: none; margin: 0 auto; padding: 0; max-width: 760px; display: grid; gap: 0; }
+  .kxs-p { display: grid; grid-template-columns: 44px 1fr; gap: 16px; position: relative; padding-bottom: var(--kx-s3); }
+  .kxs-p:not(:last-child)::after { content: ""; position: absolute; left: 21px; top: 48px; bottom: 4px; width: 2px; background: hsl(var(--gold) / 0.5); }
+  .kxs-n { width: 44px; height: 44px; border-radius: 9999px; display: grid; place-items: center; font-weight: 700; font-size: 18px; background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
+  .kxs-q { font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: hsl(var(--gold-ink)); margin-bottom: 4px; }
+  .kxs-t { margin-top: 8px; }
+</style>

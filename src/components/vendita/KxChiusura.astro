@@ -1,0 +1,41 @@
+---
+// S12 · Chiusura (B9): autoselezione e un'azione sola. 3 condizioni ≤ 12 parole, la stessa CTA
+// del primo schermo (o lo slot "azione" per un modulo), P.S. facoltativo ≤ 25.
+import KxSezione from "./KxSezione.astro";
+import KxCta from "./KxCta.astro";
+import { tetto, quante, type Azione, type Fondo } from "./scheletro";
+
+interface Props { titolo: string; condizioni: string[]; cta?: Azione; ps?: string; fondo?: Fondo; id?: string; }
+// Slot "immagine" facoltativo (es. mockup del PDF), alto al massimo 260 px a 390.
+
+const S = "S12 Chiusura";
+const { titolo, cta, ps, fondo = "notte", id } = Astro.props;
+tetto(S, "H2", titolo, 10);
+const condizioni = quante(S, "condizioni", Astro.props.condizioni, 3, 3);
+condizioni.forEach((c, i) => tetto(S, `condizione ${i + 1}`, c, 12));
+tetto(S, "P.S.", ps, 25, false);
+const haAzione = Astro.slots.has("azione");
+if (!haAzione && !cta) throw new Error(`[scheletro #204] ${S}: manca l'azione (cta o slot "azione").`);
+---
+
+<KxSezione fondo={fondo} id={id} momento etichetta="Chiusura">
+  <div class="kxe">
+    <h2 class="kxv-h2" set:html={titolo} />
+    <ul class="kxe-c">{condizioni.map((c) => <li class="kxv-testo" set:html={c} />)}</ul>
+    {Astro.slots.has("immagine") && <div class="kxe-img"><slot name="immagine" /></div>}
+    <div class="kxe-az">{haAzione ? <slot name="azione" /> : <KxCta sezione={S} azione={cta!} />}</div>
+    {ps && <p class="kxv-dettaglio kxe-ps" set:html={`<strong>P.S.</strong> ${ps}`} />}
+  </div>
+</KxSezione>
+
+<style>
+  .kxe { max-width: 720px; margin: 0 auto; text-align: center; }
+  .kxe-c { list-style: none; margin: 32px auto 0; padding: 0; display: grid; gap: 12px; text-align: left; max-width: 52ch; }
+  .kxe-c li { position: relative; padding-left: 2rem; }
+  .kxe-c li::before { content: "✓"; position: absolute; left: 0; font-weight: 700; color: hsl(var(--gold)); }
+  .kxe-az { margin-top: 32px; }
+  .kxe-ps { margin: 24px auto 0; max-width: 52ch; text-align: left; }
+  .kxe-img { margin-top: 32px; }
+  .kxe-img :global(img) { max-height: 260px; width: auto; margin: 0 auto; display: block; }
+  @media (min-width: 768px) { .kxe-img :global(img) { max-height: 360px; } }
+</style>

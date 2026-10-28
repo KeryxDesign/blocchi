@@ -1,0 +1,52 @@
+---
+// S5 · Le voci (B7): chi ha comprato, a parole sue. 3-6 card .kx-voce (#199): citazione ≤ 40 parole,
+// nome, ruolo, foto, senza stelle. Sempre in nastro, mai impilate (#200).
+// v54 (Florbo 28/10): nastro in loop (nastro-loop.ts), fino a 10 voci; si ferma su mouse, tocco e fuoco.
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import KxSezione from "./KxSezione.astro";
+import KxTesta from "./KxTesta.astro";
+import { tetto, quante, type Fondo } from "./scheletro";
+
+interface Voce { citazione: string; nome: string; ruolo: string; foto: ImageMetadata; }
+interface Props { titolo: string; lead?: string; voci: Voce[]; fondo?: Fondo; id?: string; }
+
+const S = "S5 Le voci";
+const { titolo, lead, fondo = "bianco", id } = Astro.props;
+const voci = quante(S, "voci", Astro.props.voci, 3, 10);
+voci.forEach((v, i) => { tetto(S, `voce ${i + 1} citazione`, v.citazione, 40); tetto(S, `voce ${i + 1} ruolo`, v.ruolo, 8); });
+---
+
+<KxSezione fondo={fondo} id={id} etichetta="Le voci">
+  <KxTesta sezione={S} titolo={titolo} maxTitolo={8} lead={lead} />
+  <div class="kxn" data-kxn="24">
+    <div class="kxn-nastro" tabindex="0" role="region" aria-label="Testimonianze">
+      <ul class="kxn-corsa" role="list">
+        {[0, 1].map((copia) => voci.map((v) => (
+          <li class="kxvo-li" aria-hidden={copia ? "true" : undefined}>
+            <figure class="kxvo">
+              <blockquote set:html={`«${v.citazione}»`} />
+              <figcaption>
+                <Image src={v.foto} alt="" widths={[112, 168]} sizes="56px" class="kxvo-foto" loading="eager" draggable="false" />
+                <span><span class="kxvo-nome">{v.nome}<span class="sr-only">,</span></span><span class="kxvo-ruolo">{v.ruolo}</span></span>
+              </figcaption>
+            </figure>
+          </li>
+        )))}
+      </ul>
+    </div>
+  </div>
+</KxSezione>
+
+<script>import "./nastro-loop";</script>
+
+<style>
+  .kxvo-li { display: flex; }
+  .kxvo { margin: 0; width: min(320px, calc(100vw - 72px)); display: flex; flex-direction: column; gap: 18px; background: hsl(var(--background)); color: hsl(var(--foreground)); border: 1px solid hsl(var(--kx-filo)); border-radius: 16px; padding: 28px; }
+  .kxvo blockquote { margin: 0; font-size: 17px; line-height: 1.65; text-wrap: pretty; }
+  .kxvo figcaption { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+  .kxvo :global(.kxvo-foto) { width: 56px; height: 56px; border-radius: 9999px; object-fit: cover; border: 2px solid hsl(var(--gold-bg)); flex-shrink: 0; }
+  .kxvo-nome { display: block; font-weight: 700; font-size: 17px; line-height: 1.3; color: hsl(var(--navy)); }
+  .kxvo-ruolo { display: block; font-size: 17px; line-height: 1.3; color: hsl(var(--muted-foreground)); }
+  @media (min-width: 768px) { .kxvo { width: 360px; } }
+</style>

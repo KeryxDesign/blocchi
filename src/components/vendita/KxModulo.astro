@@ -1,0 +1,40 @@
+---
+// S1b · Il modulo (B1, azione), subito sotto il primo schermo (scheletro v4; v54 semplificata, Florbo 28/10
+// «ancora c'è troppa roba confusa»). Al massimo 5 livelli di testo: H2, una riga su cosa arriva, campo + bottone,
+// casella newsletter (LEX, resta), una riga privacy. Accanto il mockup del PDF (slot "immagine").
+// Fuori: micro-prova (va in S5), etichetta sopra il campo (diventa aria-label), link WhatsApp (resta la barra fissa
+// e la chiusura), rinvio al prezzo. Il modulo vero arriva dallo slot (id e script della pagina).
+import KxSezione from "./KxSezione.astro";
+import { tetto, type Fondo } from "./scheletro";
+
+interface Props { titolo: string; riga: string; fondo?: Fondo; id?: string; }
+
+const S = "S1b Modulo";
+const p = Astro.props;
+tetto(S, "H2", p.titolo, 8);
+tetto(S, "riga su cosa arriva", p.riga, 14);
+if (!Astro.slots.has("default")) throw new Error(`[scheletro #204] ${S}: manca il modulo.`);
+const haImg = Astro.slots.has("immagine");
+---
+
+<KxSezione fondo={p.fondo ?? "grigio"} id={p.id} etichetta="Il modulo">
+  <div class="kxv-testa kxmo-testa">
+    <h2 class="kxv-h2">{p.titolo}</h2>
+    <p class="kxv-lead" set:html={p.riga} />
+  </div>
+  <div class:list={["kxmo", { "kxmo--img": haImg }]}>
+    {haImg && <div class="kxmo-img"><slot name="immagine" /></div>}
+    <div class="kxv-riquadro kxmo-agire"><slot /></div>
+  </div>
+</KxSezione>
+
+<style>
+  .kxmo-testa { margin-bottom: var(--kx-s4); }
+  .kxmo { max-width: 560px; margin: 0 auto; display: grid; gap: var(--kx-s4); }
+  .kxmo-img :global(img) { display: block; width: auto; max-width: 100%; max-height: 200px; margin: 0 auto; }
+  @media (min-width: 768px) {
+    .kxmo-testa { margin-bottom: var(--kx-s5); }
+    .kxmo--img { max-width: 960px; grid-template-columns: 1fr 1fr; gap: var(--kx-s6); align-items: center; }
+    .kxmo-img :global(img) { max-height: 360px; }
+  }
+</style>

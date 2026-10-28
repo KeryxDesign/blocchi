@@ -1,0 +1,61 @@
+---
+// S1 · Primo schermo (B0+B1), v4 dello scheletro (Florbo 28/10 11:48: «quasi 10 livelli di testo diversi»).
+// Massimo 4 livelli di testo + 1 immagine: qualifica, H1, sottotitolo, un bottone. Nient'altro.
+// Prova, modulo, consenso, privacy, WhatsApp e rinvio al prezzo stanno nella sezione dopo (S1b, KxModulo).
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import KxSezione from "./KxSezione.astro";
+import KxCta from "./KxCta.astro";
+import { tetto, type Azione, type Fondo } from "./scheletro";
+
+interface Props {
+  qualifica: string;
+  titolo: string;
+  sottotitolo: string;
+  immagine: ImageMetadata;
+  immagineAlt: string;
+  /** L'unico bottone del primo schermo. Se l'azione è un modulo, porta alla sezione S1b (es. "#pdf-esempi"). */
+  cta: Azione;
+  fondo?: Fondo;
+}
+
+const S = "S1 Primo schermo";
+const p = Astro.props;
+tetto(S, "riga di qualifica", p.qualifica, 10);
+tetto(S, "H1", p.titolo, 9);
+tetto(S, "sottotitolo", p.sottotitolo, 15);
+if (!p.cta) throw new Error(`[scheletro #204] ${S}: manca il bottone.`);
+---
+
+<KxSezione fondo={p.fondo ?? "marmo"} momento primo etichetta="Inizio">
+  <!-- Quattro livelli: qualifica (compatto) · H1 · sottotitolo (lead) · bottone. Una immagine. -->
+  <div class="kxa">
+    <div class="kxa-testo">
+      <p class="kxv-compatto kxa-qual" set:html={p.qualifica} />
+      <h1 class="kxv-h1 kxa-h1" set:html={p.titolo} />
+      <p class="kxv-lead kxa-sotto" set:html={p.sottotitolo} />
+    </div>
+    <div class="kxa-img">
+      <Image src={p.immagine} alt={p.immagineAlt} widths={[390, 780, 1120]} sizes="(min-width: 768px) 50vw, 100vw" loading="eager" fetchpriority="high" />
+    </div>
+    <div class="kxa-azione">
+      <KxCta sezione={S} azione={p.cta} />
+    </div>
+  </div>
+</KxSezione>
+
+<style>
+  .kxa { display: grid; gap: var(--kx-gruppo); }
+  .kxa-h1 { margin-top: var(--kx-s3); }
+  .kxa-sotto { margin-top: var(--kx-s4); }
+  .kxa-qual { font-weight: 700; color: hsl(var(--navy)); }
+  .kxa-img :global(img) { width: 100%; height: auto; max-height: 220px; object-fit: contain; display: block; }
+  @media (min-width: 768px) {
+    /* Testo a sinistra, immagine a destra; bottone in basso nella colonna testo (Haller, eye flow). */
+    .kxa { grid-template-columns: 1fr 1fr; grid-template-areas: "testo img" "azione img"; column-gap: var(--kx-s7); row-gap: var(--kx-s5); align-items: start; }
+    .kxa-testo { grid-area: testo; }
+    .kxa-img { grid-area: img; align-self: center; }
+    .kxa-img :global(img) { max-height: none; }
+    .kxa-azione { grid-area: azione; }
+  }
+</style>

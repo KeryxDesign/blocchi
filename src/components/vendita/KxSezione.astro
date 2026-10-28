@@ -1,0 +1,23 @@
+---
+// Contenitore di ogni sezione dello scheletro (#204): fondo fra quelli ammessi, spazi del ritmo verticale.
+import "./kx-vendita.css";
+import type { Fondo } from "./scheletro";
+
+interface Props {
+  fondo: Fondo;
+  id?: string;
+  /** Sezioni «momento» (primo schermo, chiusura): spazio s-9. */
+  momento?: boolean;
+  /** Primo schermo: poco spazio sopra, perché l'azione entri a 390×844. */
+  primo?: boolean;
+  etichetta?: string;
+}
+
+const { fondo, id, momento = false, primo = false, etichetta } = Astro.props;
+---
+
+<section id={id} aria-label={etichetta} class:list={["kxv", `kxv--${fondo}`, { "kxv--momento": momento, "kxv--primo": primo }]}>
+  <div class="kxv-in">
+    <slot />
+  </div>
+</section>

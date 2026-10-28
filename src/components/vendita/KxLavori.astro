@@ -1,0 +1,65 @@
+---
+// S4 · I lavori (B2): la prova prima delle parole. 3-8 immagini, didascalia = nome + risultato
+// verificato ≤ 12 parole. Niente paragrafi. Griglia 2 × N sul telefono, 4 su computer.
+// v54 (Florbo 28/10): «copertine» facoltative = carosello in loop sotto il titolo, sopra la griglia
+// (la griglia sta in mezzo, così i caroselli di S4 e S5 non sono mai di fila).
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import KxSezione from "./KxSezione.astro";
+import KxTesta from "./KxTesta.astro";
+import { tetto, quante, type Azione, type Fondo } from "./scheletro";
+
+interface Lavoro { img: ImageMetadata; alt: string; didascalia: string; }
+interface Copertina { img: ImageMetadata; alt: string; }
+interface Props { titolo: string; lead?: string; lavori: Lavoro[]; copertine?: Copertina[]; altri?: Azione; fondo?: Fondo; id?: string; }
+
+const S = "S4 I lavori";
+const { titolo, lead, altri, copertine = [], fondo = "navy", id } = Astro.props;
+const lavori = quante(S, "lavori", Astro.props.lavori, 4, 8);
+lavori.forEach((l, i) => tetto(S, `didascalia ${i + 1}`, l.didascalia, 12));
+tetto(S, "link agli altri lavori", altri?.testo, 6, false);
+---
+
+<KxSezione fondo={fondo} id={id} etichetta="I lavori">
+  <KxTesta sezione={S} titolo={titolo} maxTitolo={8} lead={lead} />
+  {copertine.length > 0 && (
+    <div class="kxn kxl-nastro" data-kxn="34">
+      <div class="kxn-nastro" tabindex="0" role="region" aria-label="Copertine dei libri">
+        <ul class="kxn-corsa" role="list">
+          {[0, 1].map((copia) => copertine.map((c) => (
+            <li aria-hidden={copia ? "true" : undefined}>
+              <Image src={c.img} alt={copia ? "" : c.alt} widths={[200, 300, 450]} sizes="(min-width: 768px) 210px, 150px" class="kxl-cop" loading="eager" decoding="async" draggable="false" />
+            </li>
+          )))}
+        </ul>
+      </div>
+    </div>
+  )}
+  <ul class="kxl">
+    {lavori.map((l) => (
+      <li>
+        <figure class="kxl-fig">
+          <Image src={l.img} alt={l.alt} widths={[300, 600]} sizes="(min-width: 768px) 25vw, 70vw" loading="lazy" />
+          <figcaption class="kxv-compatto kxl-cap" set:html={l.didascalia} />
+        </figure>
+      </li>
+    ))}
+  </ul>
+  {altri && <p class="kxl-altri"><a class="kxv-link" href={altri.href}>{altri.testo}</a></p>}
+</KxSezione>
+
+<script>import "./nastro-loop";</script>
+
+<style>
+  .kxl { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .kxl-fig { margin: 0; }
+  .kxl-fig :global(img) { width: 100%; height: auto; display: block; border-radius: 6px; box-shadow: var(--shadow-card); }
+  .kxl-cap { margin-top: 12px; }
+  .kxl-nastro { margin-bottom: var(--kx-s6); }
+  .kxl-nastro :global(.kxl-cop) { display: block; height: 225px; width: auto; border-radius: 3px; }
+  .kxl-altri { text-align: center; margin-top: 16px; }
+  @media (min-width: 768px) {
+    .kxl { grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .kxl-nastro :global(.kxl-cop) { height: 300px; }
+  }
+</style>

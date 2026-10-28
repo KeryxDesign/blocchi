@@ -1,0 +1,22 @@
+---
+// Testa di sezione: un H2 e al massimo un lead ≤ 10 parole (2 righe centrate). Solo questi due si centrano.
+import { tetto } from "./scheletro";
+
+interface Props {
+  sezione: string;
+  titolo: string;
+  maxTitolo: number;
+  lead?: string;
+  maxLead?: number;
+  id?: string;
+}
+
+const { sezione, titolo, maxTitolo, lead, maxLead = 10, id } = Astro.props;
+tetto(sezione, "H2", titolo, maxTitolo);
+tetto(sezione, "lead", lead, maxLead, false);
+---
+
+<div class="kxv-testa">
+  <h2 class="kxv-h2" id={id} set:html={titolo} />
+  {lead && <p class="kxv-lead" set:html={lead} />}
+</div>

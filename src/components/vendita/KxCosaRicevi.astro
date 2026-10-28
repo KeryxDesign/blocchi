@@ -1,0 +1,40 @@
+---
+// S7 · Cosa ricevi: deliverable col nome esatto (4-7 voci ≤ 12 parole) e cosa resta fuori
+// (2-4 voci ≤ 10 parole). Domande 2 e 11.
+import KxSezione from "./KxSezione.astro";
+import KxTesta from "./KxTesta.astro";
+import { tetto, quante, type Fondo } from "./scheletro";
+
+interface Props { titolo: string; dentro: string[]; fuori: string[]; fondo?: Fondo; id?: string; }
+
+const S = "S7 Cosa ricevi";
+const { titolo, fondo = "bianco", id } = Astro.props;
+const dentro = quante(S, "dentro", Astro.props.dentro, 4, 7);
+const fuori = quante(S, "fuori", Astro.props.fuori, 2, 4);
+dentro.forEach((d, i) => tetto(S, `dentro ${i + 1}`, d, 12));
+fuori.forEach((d, i) => tetto(S, `fuori ${i + 1}`, d, 10));
+---
+
+<KxSezione fondo={fondo} id={id} etichetta="Cosa ricevi">
+  <KxTesta sezione={S} titolo={titolo} maxTitolo={8} />
+  <div class="kxr">
+    <div class="kxv-card">
+      <h3 class="kxv-h3">Dentro</h3>
+      <ul class="kxr-l">{dentro.map((d) => <li class="kxv-testo kxr-si" set:html={d} />)}</ul>
+    </div>
+    <div class="kxr-fuori">
+      <h3 class="kxv-h3">Fuori</h3>
+      <ul class="kxr-l">{fuori.map((d) => <li class="kxv-testo kxr-no" set:html={d} />)}</ul>
+    </div>
+  </div>
+</KxSezione>
+
+<style>
+  .kxr { display: grid; gap: 24px; max-width: 960px; margin: 0 auto; }
+  .kxr-fuori { padding: 28px; border: 1px dashed hsl(var(--kx-filo)); border-radius: 16px; }
+  .kxr-l { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 12px; }
+  .kxr-l li { position: relative; padding-left: 2rem; }
+  .kxr-si::before { content: "✓"; position: absolute; left: 0; top: 0; font-weight: 700; color: hsl(var(--gold-ink)); }
+  .kxr-no::before { content: "–"; position: absolute; left: 0.2rem; top: 0; color: hsl(var(--muted-foreground)); }
+  @media (min-width: 768px) { .kxr { grid-template-columns: 3fr 2fr; gap: 32px; align-items: start; } }
+</style>

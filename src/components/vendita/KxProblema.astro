@@ -1,0 +1,38 @@
+---
+// S2 · Il problema (B4). Lista con icone, 3-5 voci, soggetto = l'oggetto, mai «tu».
+// Ogni voce: titolo ≤ 6 parole + testo ≤ 15. L'ultima nomina il costo.
+import KxSezione from "./KxSezione.astro";
+import KxTesta from "./KxTesta.astro";
+import { tetto, quante, type Fondo } from "./scheletro";
+
+interface Voce { titolo: string; testo: string; }
+interface Props { titolo: string; voci: Voce[]; fondo?: Fondo; id?: string; }
+
+const S = "S2 Il problema";
+const { titolo, fondo = "bianco", id } = Astro.props;
+const voci = quante(S, "voci", Astro.props.voci, 3, 5);
+voci.forEach((v, i) => { tetto(S, `voce ${i + 1} titolo`, v.titolo, 6); tetto(S, `voce ${i + 1} testo`, v.testo, 15); });
+---
+
+<KxSezione fondo={fondo} id={id} etichetta="Il problema">
+  <KxTesta sezione={S} titolo={titolo} maxTitolo={10} />
+  <ul class="kxp">
+    {voci.map((v) => (
+      <li class="kxp-voce kxv-riquadro">
+        <svg class="kxp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" /><path d="M12 6.5v7M12 16.8v.7" /></svg>
+        <div>
+          <p class="kxv-h3" set:html={v.titolo} />
+          <p class="kxv-testo kxp-t" set:html={v.testo} />
+        </div>
+      </li>
+    ))}
+  </ul>
+</KxSezione>
+
+<style>
+  .kxp { display: grid; gap: var(--kx-s3); list-style: none; margin: 0 auto; padding: 0; max-width: 960px; }
+  .kxp-voce { display: grid; grid-template-columns: 32px 1fr; gap: 16px; align-items: start; }
+  .kxp-ico { width: 32px; height: 32px; fill: hsl(var(--coral) / 0.12); stroke: hsl(var(--coral-ink)); stroke-width: 2; stroke-linecap: round; }
+  .kxp-t { margin-top: 8px; }
+  @media (min-width: 768px) { .kxp { grid-template-columns: 1fr 1fr; gap: var(--kx-s4); } }
+</style>

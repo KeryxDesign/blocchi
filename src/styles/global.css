@@ -1,0 +1,651 @@
+/* DM Sans & Playfair Display are preloaded in Layout.astro for faster FCP */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SOGLIE TIPOGRAFICHE (regola di repo, verifica computata a 390px)
+   - corpo del sito: >= 16px
+   - nessun testo sotto i 15px (28/10/2026, Florbo: allineato al pavimento di Arcadio, graf_pagina_web punto 4,
+     ratifica #82: etichette, note e form >= 15px a 390. Prima era 14)
+   ECCEZIONI, chiuse, NON estendibili per analogia:
+   - card cookie (CookieBanner.astro): 13px. Testo di consenso transitorio, non
+     contenuto di lettura; a 14px la card sfonda il tetto di 180px e copre l'hero.
+     Approvata da LORI il 2026-07-28. Vale SOLO per quella card: non e' un
+     precedente per landing, sezioni prezzi o qualunque contenuto di lettura.
+   - disclaimer legale della chat (ChatWidget.astro): 13px, deroga di progetto.
+   Chi vuole aggiungere un'eccezione la scrive qui con data e motivo, o non esiste.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Keryx Design Brand Colors - Cream/Navy Theme */
+    --background: 0 0% 100%;
+    --foreground: 265 4% 12.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 265 4% 12.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 265 4% 12.9%;
+
+    /* Sky-950 Blue Primary */
+    --primary: 204 96% 10%;
+    --primary-foreground: 248 0.3% 98.4%;
+
+    /* Coral/Red Accent */
+    --accent: 248 0.7% 96.8%;
+    --accent-foreground: 45 93.3884% 47.451%;
+
+    --secondary: 248 0.7% 96.8%;
+    --secondary-foreground: 204 80.2469% 15.8824%;
+
+    --muted: 248 0.7% 96.8%;
+    --muted-foreground: 220 15% 20%;
+
+    --destructive: 27 24.5% 57.7%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 256 1.3% 92.9%;
+    --input: 256 1.3% 92.9%;
+    --ring: 257 4% 70.4%;
+
+    --radius: 0.375rem;
+
+    /* Custom tokens - Sky-950 */
+    --navy: 204 96% 10%;
+    --navy-dark: 204 96% 6%;
+    --sky-blue: 199 89% 48%;
+    --cream: 206 22% 94%;
+    --cream-dark: 248 1% 97%;
+    --coral: 6 63% 55%;
+    /* coral-ink: rosso scuro per TESTO su sfondo chiaro (messaggi d'errore). Aggiunto da LORI il 2026-09-07: in palette non esisteva un rosso leggibile come testo, --coral a L55% fa 4,10:1 su bianco (sotto AA). A L36%: 7,75:1 su bianco. Stessa tinta e saturazione di --coral, stesso schema di --gold -> --gold-ink. */
+    --coral-ink: 6 63% 36%;
+    --coral-hover: 6 63% 48%;
+    --gold: 42 87% 55%;
+    --whatsapp: 142 70% 20%; /* verde WhatsApp scurito: testo bianco 8,7:1 (>= 7:1, profilo 45+) */
+    --gold-dark: 42 80% 40%;
+    --gold-bg: 42 60% 92%;
+    /* gold-ink: oro scuro per TESTO su sfondo chiaro. Dal 2026-09-07 a L22% (#6D4603): la soglia di riferimento NON e' piu' AA 4.5:1 ma il profilo B della ratifica #82 (contrasto >=7:1; 4.5:1 solo per testo grande, >=24px o >=19px bold) — fonte unica Sistema/_CORE/sop/grafica/graf_pagina_web.md punto 4, package.json dichiara keryx.etaTargetMin 45. Contrasti misurati a L22%: 8.27 su bianco, 7.23 su cream, 7.74 su cream-dark, 7.25 su marmo. Passa il profilo B ovunque; a L28% faceva 5.17-5.95 e NON lo passava. Il gold acceso va solo su navy/riempimenti, MAI come testo su bianco/chiaro. */
+    --gold-ink: 38 95% 22%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(180deg, hsl(40 30% 90%) 0%, hsl(40 25% 85%) 100%);
+    --gradient-testimonials: linear-gradient(180deg, hsl(210 41% 28%) 0%, hsl(210 45% 20%) 100%);
+    --shadow-elegant: 0 4px 20px hsl(210 41% 28% / 0.08);
+    --shadow-card: 0 8px 32px hsl(210 41% 28% / 0.12);
+
+    --sidebar-background: 210 41% 28%;
+    --sidebar-foreground: 265 4% 12.9%;
+    --sidebar-primary: 266 4% 20.8%;
+    --sidebar-primary-foreground: 248 0.3% 98.4%;
+    --sidebar-accent: 248 0.7% 96.8%;
+    --sidebar-accent-foreground: 266 4% 20.8%;
+    --sidebar-border: 256 1.3% 92.9%;
+    --sidebar-ring: 257 4% 70.4%;
+
+    --chart-1: 41 22.2% 64.6%;
+    --chart-2: 185 11.8% 60%;
+    --chart-3: 227 7% 39.8%;
+    --chart-4: 84 18.9% 82.8%;
+    --chart-5: 70 18.8% 76.9%;
+    --sidebar: 248 0.3% 98.4%;
+
+    --font-sans: Inter, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    --font-serif: "Libre Baskerville", ui-serif, Georgia, Cambria, Times New Roman, Times, serif;
+
+    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
+    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+    --font-mono: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+    --tracking-normal: 0em;
+    --spacing: 0.25rem;
+
+    /* Scala degli spazi (sistema_gerarchia_home §3.5 + scheletro_pagina_vendita «Spazio e contrasto», 28/10/2026).
+       Valori del telefono; da 768 px salgono s-6...s-9. Stessi nomi s-1...s-9 di §3.5, piu' s-0. Nessuno spazio fuori scala nei componenti Kx (niente 7, 9, 10 px).
+       Prossimita' (Gestalt): lo spazio fra due gruppi e' almeno il doppio di quello dentro il gruppo. */
+    --kx-s0: 4px;   /* etichetta ↔ sua riga di aiuto */
+    --kx-s1: 8px;   /* dentro un gruppo: icona ↔ testo, nome ↔ ruolo, campo ↔ bottone */
+    --kx-s2: 12px;  /* H3 → testo del blocco; sotto-gruppi dentro un gruppo */
+    --kx-s3: 16px;  /* qualifica → H1, H2 → lead, paragrafo → paragrafo */
+    --kx-s4: 24px;  /* H1 → sottotitolo; fra gruppi dentro un blocco (telefono) */
+    --kx-s5: 32px;  /* fra gruppi dentro un blocco (computer); lead → bottoni */
+    --kx-s6: 32px;  /* testa di sezione → contenuto (computer 48) */
+    --kx-s7: 48px;  /* primo schermo → striscia delle prove (computer 64) */
+    --kx-s8: 64px;  /* sopra e sotto una sezione normale (computer 96) */
+    --kx-s9: 80px;  /* sezioni «momento» (computer 128) */
+    --kx-gruppo: var(--kx-s4); /* fra gruppi: 24 telefono, 32 computer */
+    /* Distanza minima fra un bersaglio e un elemento fisso (barra WhatsApp, accessibilita', cookie): Material 8dp, qui 16. */
+    --kx-fisso-aria: 16px;
+    /* v54 (scheletro R13): filo dei riquadri, >= 3:1 su bianco (3,99), grigio (3,49) e crema (WCAG 1.4.11). */
+    --kx-filo: 206 15% 50%;
+  }
+
+  @media (min-width: 768px) {
+    :root {
+      --kx-s6: 48px;
+      --kx-s7: 64px;
+      --kx-s8: 96px;
+      --kx-s9: 128px;
+      --kx-gruppo: 32px;
+    }
+  }
+
+  .dark {
+    --background: 220 15% 12%;
+    --foreground: 0 0% 98%;
+    --card: 220 15% 15%;
+    --card-foreground: 0 0% 98%;
+    --popover: 220 15% 15%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 42 87% 55%;
+    --primary-foreground: 220 15% 12%;
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 220 10% 25%;
+    --muted-foreground: 220 10% 65%;
+    --accent: 220 15% 20%;
+    --accent-foreground: 0 0% 98%;
+    --border: 220 10% 25%;
+    --input: 220 10% 25%;
+    --ring: 42 87% 55%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --chart-1: 201 90% 45%;
+    --chart-2: 201 90% 35%;
+    --chart-3: 42 90% 50%;
+    --chart-4: 45 93% 55%;
+    --chart-5: 210 40% 70%;
+    --sidebar: 220 15% 15%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 42 87% 55%;
+    --sidebar-primary-foreground: 220 15% 12%;
+    --sidebar-accent: 220 15% 20%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 220 10% 25%;
+    --sidebar-ring: 42 87% 55%;
+    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
+    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible {
+    outline: 2px solid hsl(var(--gold));
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(6 63% 65%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bg-navy {
+    background-color: hsl(var(--navy));
+  }
+
+  .bg-navy-dark {
+    background-color: hsl(var(--navy-dark));
+  }
+
+  .bg-cream {
+    background-color: hsl(var(--cream));
+  }
+
+  .bg-cream-dark {
+    background-color: hsl(var(--cream-dark));
+  }
+
+  .bg-coral {
+    background-color: hsl(var(--coral));
+  }
+
+  .text-navy {
+    color: hsl(var(--navy));
+  }
+
+  .text-cream {
+    color: hsl(var(--cream));
+  }
+
+  .text-coral {
+    color: hsl(var(--coral));
+  }
+
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+
+  /* Testo gold leggibile su sfondo CHIARO (bianco/marble/cream). Usare al posto di .text-gold per kicker/eyebrow su chiaro. */
+  .text-gold-ink {
+    color: hsl(var(--gold-ink));
+  }
+
+  .bg-gradient-testimonials {
+    background: linear-gradient(180deg, hsl(var(--navy)) 0%, hsl(var(--navy-dark)) 100%);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Marble texture background */
+  .bg-marble {
+    position: relative;
+    background-image: url('/images/marble-bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+@layer components {
+  .landing-offer-797 p {
+    line-height: 2 !important;
+  }
+
+  .keryx-marquee {
+    animation: keryxMarquee var(--keryx-marquee-duration, 32s) linear infinite;
+    will-change: transform;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  .btn-coral {
+    @apply bg-coral text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200;
+  }
+
+  .btn-coral:hover {
+    background-color: hsl(var(--coral-hover));
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px hsl(var(--coral) / 0.3);
+  }
+
+  .btn-outline-navy {
+    @apply bg-transparent border-2 border-primary text-primary font-semibold px-6 py-3 rounded-lg transition-all duration-200;
+  }
+
+  .btn-outline-navy:hover {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .btn-gold {
+    background: linear-gradient(135deg, hsl(42 87% 55%) 0%, hsl(42 80% 40%) 100%);
+    color: hsl(var(--primary));
+    font-weight: 700;
+    box-shadow: 0 4px 12px hsl(42 87% 55% / 0.3);
+  }
+
+  /* Bottoni WhatsApp: verdi con icona, distinti da mail/modulo (oro). */
+  .btn-wa {
+    background: hsl(var(--whatsapp));
+    color: hsl(var(--primary-foreground));
+    font-weight: 700;
+    border: 2px solid hsl(var(--primary-foreground) / 0.8);
+    gap: 0.6rem;
+  }
+  .btn-wa:hover { background: hsl(142 70% 16%); }
+
+  .btn-gold:hover {
+    background: linear-gradient(135deg, hsl(42 80% 50%) 0%, hsl(42 80% 35%) 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px hsl(42 87% 55% / 0.4);
+  }
+
+  .btn-gold:active {
+    transform: translateY(0);
+  }
+
+  .btn-gold:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  /* DRD Lab article rich content */
+  .drd-article-rich {
+    @apply space-y-6 text-lg leading-relaxed;
+  }
+
+  .drd-article-rich p {
+    @apply text-[17px] leading-relaxed mb-6;
+    color: hsl(220 10% 25%);
+  }
+
+  .drd-article-rich h2 {
+    @apply font-serif text-3xl md:text-4xl font-bold mt-14 mb-8;
+    color: hsl(var(--foreground));
+  }
+
+  .drd-article-rich h3 {
+    @apply font-serif text-2xl md:text-3xl font-semibold mt-10 mb-6;
+    color: hsl(var(--foreground));
+  }
+
+  .drd-article-rich ul {
+    @apply list-disc list-outside pl-12 my-6 space-y-3 text-muted-foreground;
+  }
+
+  .drd-article-rich ol {
+    @apply list-decimal list-outside pl-12 my-6 space-y-3 text-muted-foreground;
+  }
+
+  .drd-article-rich li {
+    @apply pl-2;
+  }
+
+  .drd-article-rich a {
+    @apply text-primary underline underline-offset-4;
+  }
+
+  .drd-article-rich blockquote {
+    @apply bg-gold-bg border-l-4 border-gold pl-10 pr-4 py-4 my-8 rounded-r-lg italic relative;
+    color: hsl(var(--foreground) / 0.9);
+  }
+
+  .drd-article-rich blockquote::before {
+    content: '"';
+    @apply absolute left-3 top-2 text-gold text-4xl leading-none font-serif;
+    opacity: 0.6;
+  }
+
+  .drd-article-rich blockquote p {
+    @apply mb-4 last:mb-0;
+    font-style: italic;
+  }
+
+  .drd-article-rich strong {
+    @apply font-semibold;
+    color: hsl(var(--foreground));
+  }
+
+  .drd-article-rich mark {
+    background-color: hsl(45 95% 68% / 0.55);
+    color: hsl(var(--foreground));
+    padding: 0.05em 0.22em;
+    border-radius: 3px;
+  }
+}
+
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes analysisFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes keryxMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   KX REVEAL SYSTEM (PIXEL 2026-07-24) — sistema unico animazioni
+   Regole DRD: un'animazione esiste solo se guida l'occhio verso
+   lettura, prova o CTA. Durate 200-400ms, once-only, zero librerie.
+   Lo stato nascosto esiste SOLO se JS attivo (html.js-anim aggiunta
+   da KxReveal.astro): senza JS tutto resta visibile, zero CLS
+   (solo opacity/transform). Fuori dai @layer Tailwind di proposito:
+   .kx-in viene aggiunta solo via JS e non deve essere purgata.
+   ───────────────────────────────────────────────────────────── */
+
+/* Reveal fade-up: riusa il keyframe fadeUp esistente, durata 300ms */
+html.js-anim .kx-reveal {
+  opacity: 0;
+}
+html.js-anim .kx-reveal.kx-in {
+  animation: fadeUp 0.3s ease-out both;
+  animation-delay: var(--kx-delay, 0ms);
+}
+/* Variante scale (card/pannelli): riusa scaleIn */
+html.js-anim .kx-reveal-scale.kx-in {
+  animation-name: scaleIn;
+}
+/* Delay per stagger card (passi 80ms, range 60-90ms da piano) */
+.kx-d1 { --kx-delay: 80ms; }
+.kx-d2 { --kx-delay: 160ms; }
+.kx-d3 { --kx-delay: 240ms; }
+.kx-d4 { --kx-delay: 320ms; }
+
+/* Evidenziatore oro: il background si espande da sinistra al reveal.
+   Senza JS (niente html.js-anim) il fondo oro e' pieno da subito. */
+.kx-highlight {
+  background-color: transparent;
+  background-image: linear-gradient(hsl(var(--gold) / 0.25), hsl(var(--gold) / 0.25));
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100% 100%;
+}
+html.js-anim .kx-highlight {
+  background-size: 0% 100%;
+  transition: background-size 0.4s ease-out 0.2s;
+}
+html.js-anim .kx-highlight.kx-in {
+  background-size: 100% 100%;
+}
+
+/* Pulse singolo CTA: UNA pulsazione al reveal (o dopo 800ms al load
+   con data-kx-pulse-load). Mai loop. */
+@keyframes kxPulse {
+  0%, 100% { transform: scale(1); }
+  45% { transform: scale(1.045); }
+}
+html.js-anim .kx-cta-pulse.kx-pulse {
+  animation: kxPulse 0.4s ease-in-out 1 both;
+}
+
+/* Reduced motion: azzera tutto il sistema kx-*, contenuto visibile subito.
+   (Lo script inoltre non aggiunge js-anim se reduce e' attivo.) */
+@media (prefers-reduced-motion: reduce) {
+  html.js-anim .kx-reveal,
+  html.js-anim .kx-reveal.kx-in {
+    opacity: 1;
+    animation: none;
+  }
+  html.js-anim .kx-highlight {
+    background-size: 100% 100%;
+    transition: none;
+  }
+  html.js-anim .kx-cta-pulse.kx-pulse {
+    animation: none;
+  }
+}
+
+@layer components {
+  .animate-analysis-fade-in {
+    animation: analysisFadeIn 0.9s ease-out both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-analysis-fade-in {
+      animation: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up,
+    .animate-scale-in,
+    .animate-fade-in,
+    .animate-float,
+    .animate-pulse-slow {
+      animation: none;
+    }
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   FASCIA BASSA — contratto unico dello stack flottante (direttiva LORI 2026-07-28)
+   Un solo canale di coordinamento: --kx-bottom-inset su <html>, scritto da
+   window.KxBottomInset (registro max, definito nel <head> del Layout).
+   Chiunque occupi la fascia bassa (cookie banner, sticky CTA mobile) registra
+   la propria altezza; chi galleggia (WhatsApp, chat, accessibilita) si posiziona
+   con bottom: calc(<offset base> + var(--kx-bottom-inset)). Niente pezze locali.
+   ══════════════════════════════════════════════════════════════════════════ */
+:root {
+  --kx-bottom-inset: 0px;
+  /* offset base del pill WhatsApp: e' l'ancora della colonna destra */
+  --kx-wa-offset: calc(16px + env(safe-area-inset-bottom, 0px) + var(--kx-bottom-inset, 0px));
+  --kx-wa-h: 52px;   /* altezza reale del pill WA su mobile */
+  --kx-float-gap: 10px;
+}
+@media (min-width: 768px) {
+  :root { --kx-wa-h: 60px; }
+}
+@media (min-width: 1024px) {
+  :root {
+    --kx-wa-offset: calc(24px + env(safe-area-inset-bottom, 0px) + var(--kx-bottom-inset, 0px));
+    --kx-float-gap: 12px;
+  }
+}
+
+/* Stato di partenza dei flottanti: NASCOSTI. Nessuna comparsa al load.
+   Li accende il FloatingController quando la sentinella esce dal viewport. */
+[data-kx-float] {
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  visibility: hidden;
+  transition:
+    opacity 160ms ease-in,
+    transform 160ms ease-in,
+    visibility 0s linear 160ms;
+}
+/* L'uscita e' il ritorno allo stato nascosto: la geometria vive in DUE stati soli
+   (nascosto = translateY(12px)/opacity 0, visibile = translateY(0)/opacity 1).
+   Nessuna classe transitoria definisce posizioni: un frame saltato puo' al massimo
+   far partire l'animazione in ritardo, mai produrre un salto. */
+[data-kx-float].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  visibility: visible;
+  transition:
+    opacity 240ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 240ms cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0s linear 0s;
+}
+/* Stagger 60ms in entrata: prima WhatsApp, poi la chat. In uscita nessuno. */
+[data-kx-float="chat"].is-visible {
+  transition-delay: 60ms, 60ms, 0s;
+}
+/* Primo frame dopo l'applicazione dello stato, resize e orientation change:
+   commutazione secca, mai animata. */
+[data-kx-float].kx-no-anim,
+[data-kx-float].kx-no-anim * {
+  transition: none !important;
+  animation: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-kx-float] {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Fascia riservata (150px su mobile). Criterio di collaudo, non valore da spalmare
+   (riformulazione LORI 2026-07-28): NESSUN elemento interattivo (bottone, campo,
+   link CTA) deve trovarsi negli ultimi 150px del documento a scroll massimo.
+   Si verifica sulla cattura `c-fondo`. Se e' libero non si aggiunge niente; quando
+   serve, il buffer va sul CONTENITORE DI SEZIONE che chiude la pagina, mai dentro
+   il bordo di una card (un buco di 160px in una card e' peggio del difetto). */
+@media (max-width: 767px) {
+  html.kx-has-floats {
+    scroll-padding-bottom: 160px;
+  }
+  /* Utility da applicare al contenitore di sezione quando il collaudo lo chiede */
+  .kx-float-clearance { margin-bottom: 160px; }
+  .kx-cta-clearance { padding-bottom: 96px; }
+}

@@ -1,0 +1,32 @@
+---
+// S10 · Garanzia: un riquadro solo. Testo ≤ 50 parole; condizioni = testo di LEX, fuori dal tetto.
+// ⛔ Mai «garantito il risultato».
+import KxSezione from "./KxSezione.astro";
+import { tetto, type Fondo } from "./scheletro";
+
+interface Props { titolo: string; testo: string; condizioni: string; fondo?: Fondo; id?: string; }
+
+const S = "S10 Garanzia";
+const { titolo, testo, condizioni, fondo = "crema", id } = Astro.props;
+tetto(S, "H2", titolo, 8);
+tetto(S, "testo", testo, 50);
+tetto(S, "condizioni", condizioni, 999);
+if (/garantit[oaie] il risultato/i.test(testo)) throw new Error(`[scheletro #204] ${S}: «garantito il risultato» è vietato.`);
+---
+
+<KxSezione fondo={fondo} id={id} etichetta="Garanzia">
+  <div class="kxg">
+    <svg class="kxg-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z" /><path d="m8.5 12 2.5 2.5 4.5-5" /></svg>
+    <h2 class="kxv-h2" set:html={titolo} />
+    <p class="kxv-testo kxg-t" set:html={testo} />
+    <p class="kxv-dettaglio kxg-c" set:html={condizioni} />
+  </div>
+</KxSezione>
+
+<style>
+  .kxg { max-width: 720px; margin: 0 auto; padding: 32px 24px; background: hsl(var(--background)); border: 2px solid hsl(var(--gold)); border-radius: 16px; }
+  .kxg-ico { display: block; width: 48px; height: 48px; margin: 0 auto 16px; fill: none; stroke: hsl(var(--gold-ink)); stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+  .kxg-t { margin: 16px auto 0; }
+  .kxg-c { margin: 16px auto 0; max-width: 56ch; }
+  @media (min-width: 768px) { .kxg { padding: 48px; } }
+</style>

@@ -1,0 +1,37 @@
+---
+// S3 · Cosa cambia (B5): il meccanismo con un nome. Lead ≤ 30 parole + 3 colonne in riquadro (R13, v54)
+// (H3 ≤ 5 parole, testo ≤ 25). Lead ≤ 10. Slot "immagine" facoltativo: UNA immagine del meccanismo, sotto le colonne.
+import KxSezione from "./KxSezione.astro";
+import KxTesta from "./KxTesta.astro";
+import { tetto, quante, type Fondo } from "./scheletro";
+
+interface Colonna { titolo: string; testo: string; }
+interface Props { titolo: string; lead: string; colonne: Colonna[]; fondo?: Fondo; id?: string; }
+
+const S = "S3 Cosa cambia";
+const { titolo, lead, fondo = "crema", id } = Astro.props;
+const colonne = quante(S, "colonne", Astro.props.colonne, 3, 3);
+colonne.forEach((c, i) => { tetto(S, `colonna ${i + 1} H3`, c.titolo, 5); tetto(S, `colonna ${i + 1} testo`, c.testo, 25); });
+---
+
+<KxSezione fondo={fondo} id={id} etichetta="Cosa cambia">
+  <KxTesta sezione={S} titolo={titolo} maxTitolo={10} lead={lead} />
+  <div class="kxm">
+    {colonne.map((c, i) => (
+      <div class="kxv-riquadro">
+        <p class="kxm-n" aria-hidden="true">{i + 1}</p>
+        <h3 class="kxv-h3" set:html={c.titolo} />
+        <p class="kxv-testo kxm-t" set:html={c.testo} />
+      </div>
+    ))}
+  </div>
+  {Astro.slots.has("immagine") && <div class="kxm-img"><slot name="immagine" /></div>}
+</KxSezione>
+
+<style>
+  .kxm { display: grid; gap: var(--kx-s3); }
+  .kxm-n { font-family: theme('fontFamily.display'); font-weight: 800; font-size: 28px; line-height: 1; color: hsl(var(--gold-ink)); margin-bottom: 12px; }
+  .kxm-t { margin-top: 12px; }
+  .kxm-img { margin: 48px auto 0; max-width: 900px; }
+  @media (min-width: 768px) { .kxm { grid-template-columns: repeat(3, 1fr); gap: var(--kx-s4); } }
+</style>

@@ -1,0 +1,37 @@
+---
+// S11 · Domande Frequenti (B8): titolo fisso (#200), 5-8 domande in voce cliente ≤ 12 parole,
+// risposta ≤ 50. Sempre quella sulla fiducia. Fisarmonica nativa (<details>), zero JS.
+import KxSezione from "./KxSezione.astro";
+import { tetto, quante, type Fondo } from "./scheletro";
+
+interface Domanda { domanda: string; risposta: string; }
+interface Props { domande: Domanda[]; fondo?: Fondo; id?: string; }
+
+const S = "S11 Domande Frequenti";
+const { fondo = "bianco", id = "faq" } = Astro.props;
+const domande = quante(S, "domande", Astro.props.domande, 5, 8);
+domande.forEach((d, i) => { tetto(S, `domanda ${i + 1}`, d.domanda, 12); tetto(S, `risposta ${i + 1}`, d.risposta, 50); });
+---
+
+<KxSezione fondo={fondo} id={id} etichetta="Domande Frequenti">
+  <div class="kxv-testa"><h2 class="kxv-h2">Domande Frequenti</h2></div>
+  <div class="kxf">
+    {domande.map((d) => (
+      <details class="kxf-d">
+        <summary class="kxf-s"><span set:html={d.domanda} /></summary>
+        <p class="kxv-testo kxf-r" set:html={d.risposta} />
+      </details>
+    ))}
+  </div>
+</KxSezione>
+
+<style>
+  .kxf { max-width: 760px; margin: 0 auto; display: grid; gap: 12px; }
+  .kxf-d { border: 1px solid hsl(var(--kx-filo)); border-radius: 12px; background: hsl(var(--background)); }
+  .kxf-s { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 56px; padding: 12px 20px; font-weight: 700; font-size: 17px; line-height: 1.4; color: hsl(var(--navy)); }
+  .kxf-s::-webkit-details-marker { display: none; }
+  .kxf-s::after { content: "+"; font-size: 24px; font-weight: 400; color: hsl(var(--gold-ink)); flex-shrink: 0; }
+  .kxf-d[open] .kxf-s::after { content: "–"; }
+  .kxf-s:focus-visible { outline: 2px solid hsl(var(--gold-ink)); outline-offset: 2px; border-radius: 12px; }
+  .kxf-r { padding: 0 20px 20px; }
+</style>

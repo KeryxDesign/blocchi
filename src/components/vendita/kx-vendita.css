@@ -1,0 +1,86 @@
+/* Tema unico delle sezioni di vendita (#204 + #200). Solo token di src/styles/global.css:
+   dalle librerie d'origine (HyperUI, AstroWind) si prende la struttura, mai colori o corpi.
+   Ruoli tipografici: sistema_gerarchia_home_2026-10-17.md §3.1 (telefono / computer). */
+
+/* Spazi solo dai token --kx-s* di global.css (scheletro, «Spazio e contrasto» R1-R3). */
+.kxv { position: relative; padding: var(--kx-s8) 24px; }
+.kxv--momento { padding-top: var(--kx-s9); padding-bottom: var(--kx-s9); }
+.kxv--primo { padding-top: var(--kx-s4); }
+.kxv-in { max-width: 1120px; margin: 0 auto; }
+.kxv-stretto { max-width: 62ch; margin-left: auto; margin-right: auto; }
+
+.kxv--bianco { background: hsl(var(--background)); color: hsl(var(--foreground)); }
+.kxv--crema { background: hsl(var(--gold-bg)); color: hsl(var(--foreground)); }
+.kxv--grigio { background: hsl(var(--cream)); color: hsl(var(--foreground)); }
+.kxv--navy { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
+.kxv--notte { background: hsl(var(--navy-dark)); color: hsl(var(--primary-foreground)); }
+.kxv--marmo { overflow: hidden; isolation: isolate; color: hsl(var(--foreground)); }
+.kxv--marmo::before { content: ""; position: absolute; inset: 0; z-index: -1; background: url('/images/marble-bg.webp') center / cover no-repeat; }
+
+/* Ruoli */
+.kxv-occhiello { font-family: theme('fontFamily.sans'); font-weight: 700; font-size: 14px; line-height: 1.4; letter-spacing: 0.16em; text-transform: uppercase; color: hsl(var(--gold-ink)); }
+.kxv-h1 { font-family: theme('fontFamily.display'); font-weight: 800; font-size: 36px; line-height: 1.12; color: hsl(var(--navy)); max-width: 13em; text-wrap: balance; }
+.kxv-h2 { font-family: theme('fontFamily.display'); font-weight: 800; font-size: 28px; line-height: 1.18; color: hsl(var(--navy)); text-align: center; text-wrap: balance; }
+.kxv-lead { font-family: theme('fontFamily.sans'); font-weight: 400; font-size: 19px; line-height: 1.5; color: hsl(var(--muted-foreground)); max-width: 30em; }
+.kxv-h3 { font-family: theme('fontFamily.sans'); font-weight: 700; font-size: 21px; line-height: 1.3; color: hsl(var(--foreground)); }
+.kxv-testo { font-size: 17px; line-height: 1.6; max-width: 62ch; }
+.kxv-compatto { font-size: 16px; line-height: 1.5; }
+/* 15 px: pavimento di graf_pagina_web punto 4 (profilo A, etichette e note). Si distingue dal compatto per due leve: corpo e colore (R5). */
+.kxv-dettaglio { font-size: 15px; line-height: 1.45; color: hsl(var(--muted-foreground)); }
+.kxv-testa { margin-bottom: var(--kx-s6); text-align: center; }
+.kxv-testa .kxv-lead { margin: var(--kx-s3) auto 0; }
+/* Gruppi (prossimità): dentro s-1, fra gruppi --kx-gruppo (24 / 32). Rapporto ≥ 2:1 (R2). */
+.kxv-gruppi { display: grid; gap: var(--kx-gruppo); }
+.kxv-gruppo { display: grid; gap: var(--kx-s1); justify-items: start; }
+
+/* Su fondo scuro i ruoli passano al chiaro */
+.kxv--navy :is(.kxv-h1, .kxv-h2, .kxv-h3), .kxv--notte :is(.kxv-h1, .kxv-h2, .kxv-h3) { color: hsl(var(--primary-foreground)); }
+.kxv--navy .kxv-lead, .kxv--notte .kxv-lead, .kxv--navy .kxv-dettaglio, .kxv--notte .kxv-dettaglio { color: hsl(var(--primary-foreground) / 0.85); }
+.kxv--navy .kxv-occhiello, .kxv--notte .kxv-occhiello { color: hsl(var(--gold)); }
+
+/* CTA: un solo oro per schermata (sistema_gerarchia_home §3.7) */
+.kxv-cta { display: inline-flex; width: 100%; justify-content: center; align-items: center; text-align: center; min-height: 56px; padding: 0 32px; border-radius: 10px; font-size: 18px; font-weight: 700; text-decoration: none; }
+.kxv-cta:focus-visible { outline: 2px solid hsl(var(--gold-ink)); outline-offset: 2px; }
+.kxv-link { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; font-size: 17px; text-decoration: underline; text-underline-offset: 4px; color: inherit; }
+
+/* Nastro a scorrimento (S4, S5, S9 su telefono): la card dopo resta visibile a metà */
+.kxv-nastro { display: flex; gap: var(--kx-s3); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 4px 24px 20px; margin: 0 -24px; list-style: none; }
+.kxv-nastro::-webkit-scrollbar { display: none; }
+.kxv-nastro > li { flex: 0 0 auto; scroll-snap-align: start; }
+.kxv-nastro:focus-visible { outline: 2px solid hsl(var(--gold-ink)); outline-offset: -2px; }
+
+/* Card e riquadri (scheletro R13, v54): ogni gruppo di 2+ elementi paralleli ha un contenitore visibile,
+   mai solo il tono del fondo. Filo --kx-filo >= 3:1 sui fondi chiari; niente ombra a riposo. */
+.kxv-card { background: hsl(var(--background)); color: hsl(var(--foreground)); border: 1px solid hsl(var(--kx-filo)); border-radius: 16px; padding: 28px; }
+.kxv-riquadro { background: hsl(var(--background)); color: hsl(var(--foreground)); border: 1px solid hsl(var(--kx-filo)); border-radius: 12px; padding: var(--kx-s4); }
+
+/* Carosello in loop (S4 copertine, S5 voci; regole #200): nastro a scorrimento vero mosso da nastro-loop.ts.
+   Si trascina col dito e col mouse, si ferma su mouse, tocco e fuoco da tastiera; due copie della lista
+   (la seconda aria-hidden). Movimento ridotto: niente scorrimento automatico, nastro a mano con scroll-snap. */
+.kxn { position: relative; margin: 0 -24px; }
+.kxn-nastro { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; overscroll-behavior-x: contain; cursor: grab; -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+.kxn-nastro::-webkit-scrollbar { display: none; }
+.kxn-nastro.is-trascina { cursor: grabbing; user-select: none; }
+.kxn-nastro:focus-visible { outline: 2px solid hsl(var(--gold-ink)); outline-offset: -2px; }
+.kxv--navy .kxn-nastro:focus-visible, .kxv--notte .kxn-nastro:focus-visible { outline-color: hsl(var(--gold)); }
+.kxn-corsa { display: flex; align-items: stretch; width: max-content; margin: 0; padding: 8px 0 20px; list-style: none; }
+.kxn-corsa > li { flex-shrink: 0; margin-right: var(--kx-s3); display: flex; }
+.kxn-corsa img { -webkit-user-drag: none; }
+@media (prefers-reduced-motion: reduce) {
+  .kxn-nastro { scroll-snap-type: x mandatory; cursor: auto; -webkit-mask-image: none; mask-image: none; }
+  .kxn-corsa > li { scroll-snap-align: start; }
+  .kxn-corsa > li[aria-hidden="true"] { display: none; }
+}
+
+@media (min-width: 768px) {
+  .kxv { padding: var(--kx-s8) 32px; }
+  .kxv--primo { padding-top: var(--kx-s6); }
+  .kxv-h1 { font-size: 56px; line-height: 1.08; }
+  .kxv-h2 { font-size: 42px; line-height: 1.15; }
+  .kxv-lead { font-size: 22px; }
+  .kxv-h3 { font-size: 24px; }
+  .kxv-testo { font-size: 18px; }
+  .kxv-cta { width: auto; }
+  .kxn { margin: 0 -32px; }
+  .kxn-corsa > li { margin-right: var(--kx-s4); }
+}
