@@ -1,38 +1,38 @@
 ---
 // Un blocco di vendita da solo, con testi di esempio. Serve alle anteprime telefono/computer di /blocchi/.
 // Interno, noindex dal layout.
-import Layout from "../../layouts/Base.astro";
-import { BLOCCHI } from "../../data/blocchi-vendita";
-import KxApertura from "../../components/vendita/KxApertura.astro";
-import KxModulo from "../../components/vendita/KxModulo.astro";
-import KxProblema from "../../components/vendita/KxProblema.astro";
-import KxMeccanismo from "../../components/vendita/KxMeccanismo.astro";
-import KxLavori from "../../components/vendita/KxLavori.astro";
-import KxVoci from "../../components/vendita/KxVoci.astro";
-import KxChi from "../../components/vendita/KxChi.astro";
-import KxCosaRicevi from "../../components/vendita/KxCosaRicevi.astro";
-import KxPassi from "../../components/vendita/KxPassi.astro";
-import KxPrezzo from "../../components/vendita/KxPrezzo.astro";
-import KxGaranzia from "../../components/vendita/KxGaranzia.astro";
-import KxFaq from "../../components/vendita/KxFaq.astro";
-import KxChiusura from "../../components/vendita/KxChiusura.astro";
+import Layout from "../layouts/Base.astro";
+import { BLOCCHI } from "../data/blocchi-vendita";
+import KxApertura from "../components/vendita/KxApertura.astro";
+import KxModulo from "../components/vendita/KxModulo.astro";
+import KxProblema from "../components/vendita/KxProblema.astro";
+import KxMeccanismo from "../components/vendita/KxMeccanismo.astro";
+import KxLavori from "../components/vendita/KxLavori.astro";
+import KxVoci from "../components/vendita/KxVoci.astro";
+import KxChi from "../components/vendita/KxChi.astro";
+import KxCosaRicevi from "../components/vendita/KxCosaRicevi.astro";
+import KxPassi from "../components/vendita/KxPassi.astro";
+import KxPrezzo from "../components/vendita/KxPrezzo.astro";
+import KxGaranzia from "../components/vendita/KxGaranzia.astro";
+import KxFaq from "../components/vendita/KxFaq.astro";
+import KxChiusura from "../components/vendita/KxChiusura.astro";
 import { Image } from "astro:assets";
-import hero from "../../assets/libri-business/hero-libri-keryx-marmo.webp";
-import mockup from "../../assets/libri-business/mockup-pdf-esempi.webp";
-import davide from "../../assets/libri-business/davide-viso-spalle.webp";
-import dallan from "../../assets/libri-business/dentro-dallan.webp";
-import vino from "../../assets/libri-business/dentro-manifesto-vino.webp";
-import arlecchino from "../../assets/libri-business/dentro-arlecchino.webp";
-import massimo from "../../assets/libri-business/dentro-massimo-rendimento.webp";
-import fotoA from "../../assets/testimonials/andrea-dallan.webp";
-import fotoB from "../../assets/testimonials/marco-chiellini.webp";
-import fotoC from "../../assets/testimonials/fabio-cagnetti.webp";
+import hero from "../assets/libri-business/hero-libri-keryx-marmo.webp";
+import mockup from "../assets/libri-business/mockup-pdf-esempi.webp";
+import davide from "../assets/libri-business/davide-viso-spalle.webp";
+import dallan from "../assets/libri-business/dentro-dallan.webp";
+import vino from "../assets/libri-business/dentro-manifesto-vino.webp";
+import arlecchino from "../assets/libri-business/dentro-arlecchino.webp";
+import massimo from "../assets/libri-business/dentro-massimo-rendimento.webp";
+import fotoA from "../assets/testimonials/andrea-dallan.webp";
+import fotoB from "../assets/testimonials/marco-chiellini.webp";
+import fotoC from "../assets/testimonials/fabio-cagnetti.webp";
 
 export function getStaticPaths() {
   return BLOCCHI.map((b) => ({ params: { id: b.id } }));
 }
 const { id } = Astro.params;
-const copertine = Object.values(import.meta.glob<{ default: ImageMetadata }>("../../assets/libri-business/carosello/*.webp", { eager: true })).map((m) => ({ img: m.default, alt: "Copertina di esempio" }));
+const copertine = Object.values(import.meta.glob<{ default: ImageMetadata }>("../assets/libri-business/carosello/*.webp", { eager: true })).map((m) => ({ img: m.default, alt: "Copertina di esempio" }));
 const cta = { testo: "Testo del bottone", href: "#" };
 const lavori = [dallan, vino, arlecchino, massimo].map((img) => ({ img, alt: "Libro di esempio", didascalia: "Titolo del libro, autore." }));
 const voce = (foto: ImageMetadata, nome: string) => ({ citazione: "Una frase vera del cliente, a parole sue, che dice cosa è cambiato dopo il lavoro.", nome, ruolo: "Ruolo del cliente", foto });

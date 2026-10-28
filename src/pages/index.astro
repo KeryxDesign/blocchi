@@ -1,8 +1,9 @@
 ---
 // Catalogo interno dei blocchi di vendita (S0-S13, ratifica #204). Non indicizzato, non linkato dal sito.
 // Ogni blocco è un iframe verso /blocchi/[id]/ così i breakpoint rispondono alla larghezza vera: 390 telefono, 1440 computer.
-import Layout from "../../layouts/Base.astro";
-import { BLOCCHI } from "../../data/blocchi-vendita";
+import Layout from "../layouts/Base.astro";
+import { BLOCCHI } from "../data/blocchi-vendita";
+const B = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 <Layout title="Catalogo blocchi | Keryx Design">
   <main class="cat">
@@ -15,10 +16,10 @@ import { BLOCCHI } from "../../data/blocchi-vendita";
       <section class="cat-b" id={b.id}>
         <h2><span>{b.sezione}</span> {b.nome}</h2>
         <p class="cat-m"><code>{b.componente}</code> · {b.cosa}</p>
-        <p class="cat-m">Tetti: {b.tetti} · Usato in: {b.usatoIn} · <a href={`/blocchi/${b.id}/`} target="_blank">Apri a schermo intero</a></p>
+        <p class="cat-m">Tetti: {b.tetti} · Usato in: {b.usatoIn} · <a href={`${B}/${b.id}/`} target="_blank">Apri a schermo intero</a></p>
         <div class="cat-v">
-          <figure class="cat-tel"><figcaption>Telefono 390</figcaption><div class="cat-f"><iframe src={`/blocchi/${b.id}/`} title={`${b.nome}, telefono`} loading="lazy"></iframe></div></figure>
-          <figure class="cat-pc"><figcaption>Computer 1440</figcaption><div class="cat-f"><iframe src={`/blocchi/${b.id}/`} title={`${b.nome}, computer`} loading="lazy"></iframe></div></figure>
+          <figure class="cat-tel"><figcaption>Telefono 390</figcaption><div class="cat-f"><iframe src={`${B}/${b.id}/`} title={`${b.nome}, telefono`} loading="lazy"></iframe></div></figure>
+          <figure class="cat-pc"><figcaption>Computer 1440</figcaption><div class="cat-f"><iframe src={`${B}/${b.id}/`} title={`${b.nome}, computer`} loading="lazy"></iframe></div></figure>
         </div>
       </section>
     ))}
