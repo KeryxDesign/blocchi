@@ -1,47 +1,112 @@
 ---
-// Catalogo interno dei blocchi di vendita (S0-S13, ratifica #204). Non indicizzato, non linkato dal sito.
-// Ogni blocco è un iframe verso /blocchi/[id]/ così i breakpoint rispondono alla larghezza vera: 390 telefono, 1440 computer.
+// Libreria di tutti i blocchi a disposizione per le pagine di vendita Keryx, per sezione dello scheletro (#204).
+// Tre fonti: KX (nostri, col tema Keryx), HU (HyperUI, MIT, anteprima reale), AW (AstroWind, MIT, solo elenco).
 import Layout from "../layouts/Base.astro";
 import { BLOCCHI } from "../data/blocchi-vendita";
+import { HU, AW, type Voce } from "../data/libreria";
 const B = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const kx: Voce[] = BLOCCHI.map((b) => ({ codice: `KX-${b.sezione}-${b.id}`, sez: b.sezione, fonte: "KX", nome: b.nome, nota: `${b.componente} · ${b.cosa}`, file: `${b.id}/` }));
+const tutti = [...kx, ...HU, ...AW];
+
+const gruppi = [
+  { id: "s0", t: "S0 Testata", sez: ["S0"], d: "Barra in cima, logo e menu, annunci." },
+  { id: "s1", t: "S1 Primo schermo", sez: ["S1"], d: "Qualifica, titolo, sottotitolo, un bottone, una immagine." },
+  { id: "s1b", t: "S1b Il modulo", sez: ["S1b"], d: "Prova, campo email, consenso." },
+  { id: "s2", t: "S2-S3 Problema e cosa cambia", sez: ["S2", "S3"], d: "Voci con icone, vantaggi, confronto, riquadri." },
+  { id: "s4", t: "S4 I lavori", sez: ["S4"], d: "Galleria, caroselli, lavori in card." },
+  { id: "s5", t: "S5 Le voci", sez: ["S5"], d: "Testimonianze, loghi, numeri." },
+  { id: "s6", t: "S6 Chi lo fa", sez: ["S6"], d: "Foto e fatti, team." },
+  { id: "s7", t: "S7-S8 Cosa ricevi e come funziona", sez: ["S7", "S8"], d: "Elenchi dentro e fuori, passi, linea del tempo." },
+  { id: "s9", t: "S9 Prezzo", sez: ["S9"], d: "Pacchetti, prezzi, conto alla rovescia, bottone fisso." },
+  { id: "s10", t: "S10-S12 Garanzia, domande, chiusura", sez: ["S10", "S11", "S12"], d: "Garanzia, FAQ, chiusura col bottone." },
+  { id: "s13", t: "S13 Piede", sez: ["S13"], d: "Footer." },
+  { id: "fuori", t: "Fuori dallo scheletro", sez: ["fuori"], d: "Blocchi per negozi, blog, sondaggi: non servono alle pagine di vendita." },
+].map((g) => ({ ...g, voci: tutti.filter((v) => g.sez.includes(v.sez)) }));
+const conta = (f: string) => tutti.filter((v) => v.fonte === f).length;
 ---
-<Layout title="Catalogo blocchi | Keryx Design">
-  <main class="cat">
+<Layout title="Libreria blocchi | Keryx Design">
+  <main class="cat" data-vista="tel">
     <header class="cat-t">
-      <h1>Blocchi di vendita</h1>
-      <p>Uno per sezione dello scheletro fisso (ratifica #204). Testi di esempio. Codice in <code>src/components/vendita/</code>.</p>
-      <nav aria-label="Sezioni">{BLOCCHI.map((b) => <a href={`#${b.id}`}>{b.sezione}</a>)}</nav>
+      <h1>Libreria dei blocchi</h1>
+      <p>{tutti.length} blocchi per le pagine di vendita, ordinati per sezione dello scheletro S0-S13. Per sceglierne uno, scrivi il suo <strong>codice</strong> (es. <code>HU-pricing-2</code>).</p>
+      <ul class="cat-leg">
+        <li><b>KX</b> {conta("KX")} nostri, col tema Keryx. Codice in <code>src/components/vendita/</code>.</li>
+        <li><b>HU</b> {conta("HU")} da HyperUI (MIT). Anteprima reale, stile generico, markup pronto.</li>
+        <li><b>AW</b> {conta("AW")} da AstroWind (MIT). Widget Astro con props: qui solo l'elenco, nessuna anteprima.</li>
+      </ul>
+      <div class="cat-bar">
+        <button type="button" data-v="tel" aria-pressed="true">Telefono 390</button>
+        <button type="button" data-v="pc" aria-pressed="false">Computer 1280</button>
+      </div>
+      <nav aria-label="Sezioni">{gruppi.map((g) => <a href={`#${g.id}`}>{g.t.split(" ")[0]} <small>{g.voci.length}</small></a>)}</nav>
     </header>
-    {BLOCCHI.map((b) => (
-      <section class="cat-b" id={b.id}>
-        <h2><span>{b.sezione}</span> {b.nome}</h2>
-        <p class="cat-m"><code>{b.componente}</code> · {b.cosa}</p>
-        <p class="cat-m">Tetti: {b.tetti} · Usato in: {b.usatoIn} · <a href={`${B}/${b.id}/`} target="_blank">Apri a schermo intero</a></p>
-        <div class="cat-v">
-          <figure class="cat-tel"><figcaption>Telefono 390</figcaption><div class="cat-f"><iframe src={`${B}/${b.id}/`} title={`${b.nome}, telefono`} loading="lazy"></iframe></div></figure>
-          <figure class="cat-pc"><figcaption>Computer 1440</figcaption><div class="cat-f"><iframe src={`${B}/${b.id}/`} title={`${b.nome}, computer`} loading="lazy"></iframe></div></figure>
+    {gruppi.map((g) => (
+      <section class="cat-g" id={g.id}>
+        <h2>{g.t} <small>{g.voci.length} blocchi</small></h2>
+        <p class="cat-m">{g.d}</p>
+        <div class="cat-griglia">
+          {g.voci.map((v) => (
+            <article class={`cat-b cat-${v.fonte}`}>
+              <h3><code>{v.codice}</code> <span class="cat-f">{v.fonte === "KX" ? "Keryx" : v.fonte === "HU" ? "HyperUI" : "AstroWind"}</span></h3>
+              <p class="cat-m">{v.fonte === "HU" ? v.nome : v.nome}{v.nota ? ` · ${v.nota}` : ""}</p>
+              {v.file ? (
+                <div class="cat-w">
+                  <iframe src={`${B}/${v.file}`} title={v.codice} loading="lazy"></iframe>
+                </div>
+              ) : <p class="cat-sol">Solo elenco: widget Astro con props, nessuna anteprima.</p>}
+            </article>
+          ))}
         </div>
       </section>
     ))}
   </main>
+  <script>
+    // Altezza vera di ogni blocco (stessa origine): l'iframe non lascia vuoto sotto un blocco basso.
+    document.querySelectorAll<HTMLIFrameElement>(".cat-w iframe").forEach((f) => {
+      const misura = () => {
+        try {
+          const h = Math.min(f.contentDocument!.body.offsetHeight + 2, 900);
+          f.parentElement!.style.setProperty("--h", `${h}px`);
+        } catch { /* resta l'altezza di base */ }
+      };
+      f.addEventListener("load", () => { misura(); setTimeout(misura, 600); });
+    });
+    const m = document.querySelector<HTMLElement>(".cat")!;
+    document.querySelectorAll<HTMLButtonElement>(".cat-bar button").forEach((b) => b.addEventListener("click", () => {
+      m.dataset.vista = b.dataset.v;
+      document.querySelectorAll(".cat-bar button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    }));
+  </script>
 </Layout>
 
 <style>
-  .cat { max-width: 1280px; margin: 0 auto; padding: 24px 16px 80px; font-family: system-ui, sans-serif; color: #1a1a1a; }
+  .cat { max-width: 1500px; margin: 0 auto; padding: 24px 16px 80px; font-family: system-ui, sans-serif; color: #1a1a1a; }
   .cat-t h1 { font-size: 32px; font-weight: 800; }
-  .cat-t nav { position: sticky; top: 0; background: #fff; padding: 12px 0; display: flex; flex-wrap: wrap; gap: 8px; z-index: 5; border-bottom: 1px solid #ddd; }
+  .cat-t p { margin-top: 8px; max-width: 70ch; }
+  .cat-leg { margin: 12px 0; padding-left: 18px; font-size: 15px; }
+  .cat-bar { display: flex; gap: 8px; margin: 12px 0; }
+  .cat-bar button { padding: 8px 14px; border: 1px solid #1a1a1a; border-radius: 8px; background: #fff; font-size: 15px; cursor: pointer; }
+  .cat-bar button[aria-pressed="true"] { background: #1a1a1a; color: #fff; }
+  .cat-t nav { position: sticky; top: 0; background: #fff; padding: 10px 0; display: flex; flex-wrap: wrap; gap: 8px; z-index: 5; border-bottom: 1px solid #ddd; }
   .cat-t nav a { padding: 4px 10px; border: 1px solid #ccc; border-radius: 6px; text-decoration: none; color: inherit; font-size: 15px; }
-  .cat-b { margin-top: 56px; scroll-margin-top: 70px; }
-  .cat-b h2 { font-size: 24px; font-weight: 800; }
-  .cat-b h2 span { background: #1a1a1a; color: #fff; border-radius: 6px; padding: 2px 8px; margin-right: 6px; font-size: 18px; }
-  .cat-m { margin-top: 6px; font-size: 15px; color: #444; }
-  .cat-v { display: flex; flex-wrap: wrap; gap: 32px; margin-top: 16px; align-items: flex-start; }
-  figure { margin: 0; }
-  figcaption { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
-  .cat-f { border: 1px solid #bbb; border-radius: 10px; overflow: hidden; background: #eee; }
-  .cat-tel .cat-f { width: 390px; max-width: 100%; }
-  .cat-tel iframe { width: 390px; height: 844px; border: 0; display: block; }
-  .cat-pc .cat-f { width: 800px; height: 450px; max-width: 100%; }
-  .cat-pc iframe { width: 1440px; height: 810px; border: 0; transform: scale(.5556); transform-origin: top left; display: block; }
-  @media (max-width: 860px) { .cat-pc { display: none; } }
+  .cat-g { margin-top: 56px; scroll-margin-top: 70px; }
+  .cat-g h2 { font-size: 26px; font-weight: 800; }
+  small { font-weight: 400; font-size: 14px; color: #666; }
+  .cat-m { margin-top: 4px; font-size: 14px; color: #444; }
+  .cat-griglia { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 16px; align-items: flex-start; }
+  .cat-b { max-width: 100%; }
+  .cat-b h3 { font-size: 15px; font-weight: 700; display: flex; gap: 8px; align-items: center; }
+  .cat-b code { background: #1a1a1a; color: #fff; border-radius: 5px; padding: 1px 7px; }
+  .cat-f { font-size: 12px; font-weight: 600; color: #555; border: 1px solid #bbb; border-radius: 999px; padding: 0 8px; }
+  .cat-w { margin-top: 6px; border: 1px solid #bbb; border-radius: 10px; overflow: hidden; background: #eee; width: 390px; max-width: 100%; }
+  .cat-w { --h: 640px; }
+  .cat-w iframe { min-height: 60px; }
+  .cat-w iframe { width: 390px; height: var(--h); border: 0; display: block; background: #fff; }
+  .cat[data-vista="pc"] .cat-w { width: 840px; }
+  .cat[data-vista="pc"] .cat-w iframe { width: 1280px; height: var(--h); transform: scale(.65625); transform-origin: top left; }
+  .cat[data-vista="pc"] .cat-w { height: calc(var(--h) * .65625); }
+  .cat-g h2 { font-family: system-ui, sans-serif; }
+  .cat-sol { margin-top: 6px; font-size: 14px; color: #666; width: 280px; }
+  .cat-AW { width: 300px; }
 </style>
