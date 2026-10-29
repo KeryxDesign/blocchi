@@ -1,112 +1,115 @@
 ---
-// Libreria di tutti i blocchi a disposizione per le pagine di vendita Keryx, per sezione dello scheletro (#204).
-// Tre fonti: KX (nostri, col tema Keryx), HU (HyperUI, MIT, anteprima reale), AW (AstroWind, MIT, solo elenco).
+// Libreria delle sezioni Keryx (29/10/2026): ordinata per TIPO di sezione (A, funzione) con filtro per FORMATO (B, layout).
+// Fonte unica: src/data/catalogo.json (stessa da cui nasce CATALOGO.md, letto dalla skill /web).
 import Layout from "../layouts/Base.astro";
-import { BLOCCHI } from "../data/blocchi-vendita";
-import { HU, AW, type Voce } from "../data/libreria";
+import catalogo from "../data/catalogo.json";
 const B = import.meta.env.BASE_URL.replace(/\/$/, "");
-
-const kx: Voce[] = BLOCCHI.map((b) => ({ codice: `KX-${b.sezione}-${b.id}`, sez: b.sezione, fonte: "KX", nome: b.nome, nota: `${b.componente} · ${b.cosa}`, file: `${b.id}/` }));
-const tutti = [...kx, ...HU, ...AW];
-
-const gruppi = [
-  { id: "s0", t: "S0 Testata", sez: ["S0"], d: "Barra in cima, logo e menu, annunci." },
-  { id: "s1", t: "S1 Primo schermo", sez: ["S1"], d: "Qualifica, titolo, sottotitolo, un bottone, una immagine." },
-  { id: "s1b", t: "S1b Il modulo", sez: ["S1b"], d: "Prova, campo email, consenso." },
-  { id: "s2", t: "S2-S3 Problema e cosa cambia", sez: ["S2", "S3"], d: "Voci con icone, vantaggi, confronto, riquadri." },
-  { id: "s4", t: "S4 I lavori", sez: ["S4"], d: "Galleria, caroselli, lavori in card." },
-  { id: "s5", t: "S5 Le voci", sez: ["S5"], d: "Testimonianze, loghi, numeri." },
-  { id: "s6", t: "S6 Chi lo fa", sez: ["S6"], d: "Foto e fatti, team." },
-  { id: "s7", t: "S7-S8 Cosa ricevi e come funziona", sez: ["S7", "S8"], d: "Elenchi dentro e fuori, passi, linea del tempo." },
-  { id: "s9", t: "S9 Prezzo", sez: ["S9"], d: "Pacchetti, prezzi, conto alla rovescia, bottone fisso." },
-  { id: "s10", t: "S10-S12 Garanzia, domande, chiusura", sez: ["S10", "S11", "S12"], d: "Garanzia, FAQ, chiusura col bottone." },
-  { id: "s13", t: "S13 Piede", sez: ["S13"], d: "Footer." },
-  { id: "fuori", t: "Fuori dallo scheletro", sez: ["fuori"], d: "Blocchi per negozi, blog, sondaggi: non servono alle pagine di vendita." },
-].map((g) => ({ ...g, voci: tutti.filter((v) => g.sez.includes(v.sez)) }));
-const conta = (f: string) => tutti.filter((v) => v.fonte === f).length;
+const { categorie, tipi, blocchi } = catalogo;
+const tipiA = tipi.filter((t) => t.cat !== "B");
+const tipiB = tipi.filter((t) => t.cat === "B");
+const perTipo = (n: number) => blocchi.filter((b) => b.funzioni.includes(n));
+const fonte = { KX: "Keryx", HU: "HyperUI", AW: "AstroWind" } as Record<string, string>;
+const vuoti = tipiA.filter((t) => perTipo(t.n).length === 0).length;
+const fuori = blocchi.filter((b) => b.fuori);
 ---
-<Layout title="Libreria blocchi | Keryx Design">
-  <main class="cat" data-vista="tel">
+<Layout title="Libreria sezioni | Keryx Design">
+  <main class="cat" data-vista="tel" data-formato="">
     <header class="cat-t">
-      <h1>Libreria dei blocchi</h1>
-      <p>{tutti.length} blocchi per le pagine di vendita, ordinati per sezione dello scheletro S0-S13. Per sceglierne uno, scrivi il suo <strong>codice</strong> (es. <code>HU-pricing-2</code>).</p>
-      <ul class="cat-leg">
-        <li><b>KX</b> {conta("KX")} nostri, col tema Keryx. Codice in <code>src/components/vendita/</code>.</li>
-        <li><b>HU</b> {conta("HU")} da HyperUI (MIT). Anteprima reale, stile generico, markup pronto.</li>
-        <li><b>AW</b> {conta("AW")} da AstroWind (MIT). Widget Astro con props: qui solo l'elenco, nessuna anteprima.</li>
-      </ul>
+      <h1>Libreria delle sezioni</h1>
+      <p>{tipiA.length} tipi di sezione (A, per funzione) e {tipiB.length} formati di layout (B). {blocchi.length} blocchi pronti; {vuoti} tipi ancora senza blocco (<em>da costruire</em>). Per sceglierne uno scrivi il <strong>codice</strong> del blocco.</p>
+      <p class="cat-m"><b>KX</b> nostri, col tema Keryx · <b>HU</b> HyperUI (MIT), anteprima reale · <b>AW</b> AstroWind (MIT), solo elenco. Elenco testuale per la skill: <code>CATALOGO.md</code>.</p>
       <div class="cat-bar">
         <button type="button" data-v="tel" aria-pressed="true">Telefono 390</button>
         <button type="button" data-v="pc" aria-pressed="false">Computer 1280</button>
+        <label>Formato <select id="formato"><option value="">tutti</option>{tipiB.map((t) => <option value={t.n}>{t.n}. {t.it}</option>)}</select></label>
       </div>
-      <nav aria-label="Sezioni">{gruppi.map((g) => <a href={`#${g.id}`}>{g.t.split(" ")[0]} <small>{g.voci.length}</small></a>)}</nav>
+      <nav aria-label="Categorie">{categorie.map((c) => <a href={`#${c.id}`}>{c.id} {c.nome.split(" (")[0]}</a>)}<a href="#fuori">Fuori</a></nav>
     </header>
-    {gruppi.map((g) => (
-      <section class="cat-g" id={g.id}>
-        <h2>{g.t} <small>{g.voci.length} blocchi</small></h2>
-        <p class="cat-m">{g.d}</p>
-        <div class="cat-griglia">
-          {g.voci.map((v) => (
-            <article class={`cat-b cat-${v.fonte}`}>
-              <h3><code>{v.codice}</code> <span class="cat-f">{v.fonte === "KX" ? "Keryx" : v.fonte === "HU" ? "HyperUI" : "AstroWind"}</span></h3>
-              <p class="cat-m">{v.fonte === "HU" ? v.nome : v.nome}{v.nota ? ` · ${v.nota}` : ""}</p>
-              {v.file ? (
-                <div class="cat-w">
-                  <iframe src={`${B}/${v.file}`} title={v.codice} loading="lazy"></iframe>
+    {categorie.filter((c) => c.id !== "B").map((c) => (
+      <section class="cat-g" id={c.id}>
+        <h2>{c.id} · {c.nome}</h2>
+        {tipiA.filter((t) => t.cat === c.id).map((t) => {
+          const bl = perTipo(t.n);
+          return (
+            <div class="cat-tipo" id={`t${t.n}`}>
+              <h3><span class="cat-n">{t.n}</span> {t.en} <small>· {t.it}</small> {bl.length === 0 && <em class="cat-vuoto">da costruire</em>}</h3>
+              <p class="cat-m">{t.funzione}</p>
+              {bl.length > 0 && (
+                <div class="cat-griglia">
+                  {bl.map((b) => (
+                    <article class="cat-b" data-formati={b.formati.join(" ")}>
+                      <h4><code>{b.codice}</code> <span class="cat-f">{fonte[b.fonte]}</span></h4>
+                      <p class="cat-m">Formato: {b.formati.length ? b.formati.map((f) => tipiB.find((x) => x.n === f)?.it).join(", ") : "—"}</p>
+                      {b.anteprima ? (
+                        <div class="cat-w"><iframe src={`${B}/${b.anteprima}`} title={b.codice} loading="lazy"></iframe></div>
+                      ) : <p class="cat-sol"><a href={b.sorgente} target="_blank" rel="noopener">Sorgente AstroWind</a>: widget con props, nessuna anteprima.</p>}
+                    </article>
+                  ))}
                 </div>
-              ) : <p class="cat-sol">Solo elenco: widget Astro con props, nessuna anteprima.</p>}
-            </article>
-          ))}
-        </div>
+              )}
+            </div>
+          );
+        })}
       </section>
     ))}
+    <section class="cat-g" id="B">
+      <h2>B · Formati di layout</h2>
+      <ul class="cat-fl">{tipiB.map((t) => <li><b>{t.n}. {t.en}</b> · {t.it}: {t.funzione} <small>({blocchi.filter((b) => b.formati.includes(t.n)).length} blocchi)</small></li>)}</ul>
+    </section>
+    <section class="cat-g" id="fuori">
+      <h2>Fuori dalle pagine di vendita</h2>
+      <p class="cat-m">Negozio, blog, sondaggi, bottoni singoli: ci sono nelle librerie, non servono alle pagine di vendita.</p>
+      <p class="cat-m">{fuori.map((b) => b.codice).join(", ")}</p>
+    </section>
   </main>
   <script>
-    // Altezza vera di ogni blocco (stessa origine): l'iframe non lascia vuoto sotto un blocco basso.
+    const m = document.querySelector<HTMLElement>(".cat")!;
     document.querySelectorAll<HTMLIFrameElement>(".cat-w iframe").forEach((f) => {
       const misura = () => {
-        try {
-          const h = Math.min(f.contentDocument!.body.offsetHeight + 2, 900);
-          f.parentElement!.style.setProperty("--h", `${h}px`);
-        } catch { /* resta l'altezza di base */ }
+        try { f.parentElement!.style.setProperty("--h", `${Math.min(f.contentDocument!.body.offsetHeight + 2, 900)}px`); } catch { /* altezza di base */ }
       };
       f.addEventListener("load", () => { misura(); setTimeout(misura, 600); });
     });
-    const m = document.querySelector<HTMLElement>(".cat")!;
     document.querySelectorAll<HTMLButtonElement>(".cat-bar button").forEach((b) => b.addEventListener("click", () => {
       m.dataset.vista = b.dataset.v;
       document.querySelectorAll(".cat-bar button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
     }));
+    document.getElementById("formato")!.addEventListener("change", (e) => {
+      const v = (e.target as HTMLSelectElement).value;
+      document.querySelectorAll<HTMLElement>(".cat-b").forEach((a) => { a.hidden = !!v && !a.dataset.formati!.split(" ").includes(v); });
+    });
   </script>
 </Layout>
 
 <style>
   .cat { max-width: 1500px; margin: 0 auto; padding: 24px 16px 80px; font-family: system-ui, sans-serif; color: #1a1a1a; }
+  .cat h1, .cat h2, .cat h3 { font-family: system-ui, sans-serif; }
   .cat-t h1 { font-size: 32px; font-weight: 800; }
-  .cat-t p { margin-top: 8px; max-width: 70ch; }
-  .cat-leg { margin: 12px 0; padding-left: 18px; font-size: 15px; }
-  .cat-bar { display: flex; gap: 8px; margin: 12px 0; }
+  .cat-t p { margin-top: 8px; max-width: 80ch; }
+  .cat-bar { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; align-items: center; }
   .cat-bar button { padding: 8px 14px; border: 1px solid #1a1a1a; border-radius: 8px; background: #fff; font-size: 15px; cursor: pointer; }
   .cat-bar button[aria-pressed="true"] { background: #1a1a1a; color: #fff; }
-  .cat-t nav { position: sticky; top: 0; background: #fff; padding: 10px 0; display: flex; flex-wrap: wrap; gap: 8px; z-index: 5; border-bottom: 1px solid #ddd; }
-  .cat-t nav a { padding: 4px 10px; border: 1px solid #ccc; border-radius: 6px; text-decoration: none; color: inherit; font-size: 15px; }
-  .cat-g { margin-top: 56px; scroll-margin-top: 70px; }
-  .cat-g h2 { font-size: 26px; font-weight: 800; }
+  .cat-bar select { margin-left: 6px; padding: 7px; border: 1px solid #999; border-radius: 8px; font-size: 15px; max-width: 70vw; }
+  .cat-t nav { position: sticky; top: 0; background: #fff; padding: 10px 0; display: flex; flex-wrap: wrap; gap: 6px; z-index: 5; border-bottom: 1px solid #ddd; }
+  .cat-t nav a { padding: 3px 9px; border: 1px solid #ccc; border-radius: 6px; text-decoration: none; color: inherit; font-size: 14px; }
+  .cat-g { margin-top: 48px; scroll-margin-top: 90px; }
+  .cat-g h2 { font-size: 26px; font-weight: 800; border-bottom: 2px solid #1a1a1a; padding-bottom: 6px; }
+  .cat-tipo { margin-top: 28px; scroll-margin-top: 90px; }
+  .cat-tipo h3 { font-size: 19px; font-weight: 700; }
+  .cat-n { display: inline-block; min-width: 2.2em; text-align: center; background: #1a1a1a; color: #fff; border-radius: 5px; font-size: 14px; padding: 1px 6px; margin-right: 4px; }
+  .cat-vuoto { font-style: normal; font-size: 12px; background: #fde68a; border-radius: 999px; padding: 1px 8px; margin-left: 6px; }
   small { font-weight: 400; font-size: 14px; color: #666; }
   .cat-m { margin-top: 4px; font-size: 14px; color: #444; }
-  .cat-griglia { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 16px; align-items: flex-start; }
+  .cat-griglia { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 12px; align-items: flex-start; }
   .cat-b { max-width: 100%; }
-  .cat-b h3 { font-size: 15px; font-weight: 700; display: flex; gap: 8px; align-items: center; }
+  .cat-b[hidden] { display: none; }
+  .cat-b h4 { font-size: 14px; font-weight: 700; display: flex; gap: 8px; align-items: center; }
   .cat-b code { background: #1a1a1a; color: #fff; border-radius: 5px; padding: 1px 7px; }
   .cat-f { font-size: 12px; font-weight: 600; color: #555; border: 1px solid #bbb; border-radius: 999px; padding: 0 8px; }
-  .cat-w { margin-top: 6px; border: 1px solid #bbb; border-radius: 10px; overflow: hidden; background: #eee; width: 390px; max-width: 100%; }
-  .cat-w { --h: 640px; }
-  .cat-w iframe { min-height: 60px; }
-  .cat-w iframe { width: 390px; height: var(--h); border: 0; display: block; background: #fff; }
-  .cat[data-vista="pc"] .cat-w { width: 840px; }
-  .cat[data-vista="pc"] .cat-w iframe { width: 1280px; height: var(--h); transform: scale(.65625); transform-origin: top left; }
-  .cat[data-vista="pc"] .cat-w { height: calc(var(--h) * .65625); }
-  .cat-g h2 { font-family: system-ui, sans-serif; }
+  .cat-w { --h: 640px; margin-top: 6px; border: 1px solid #bbb; border-radius: 10px; overflow: hidden; background: #eee; width: 390px; max-width: 100%; }
+  .cat-w iframe { width: 390px; height: var(--h); min-height: 60px; border: 0; display: block; background: #fff; }
+  .cat[data-vista="pc"] .cat-w { width: 840px; height: calc(var(--h) * .65625); }
+  .cat[data-vista="pc"] .cat-w iframe { width: 1280px; transform: scale(.65625); transform-origin: top left; }
   .cat-sol { margin-top: 6px; font-size: 14px; color: #666; width: 280px; }
-  .cat-AW { width: 300px; }
+  .cat-fl { margin-top: 12px; padding-left: 18px; display: grid; gap: 6px; font-size: 15px; }
 </style>

@@ -1,0 +1,2881 @@
+{
+ "versione": "2026-10-29",
+ "categorie": [
+  {
+   "id": "A1",
+   "nome": "Navigazione e cornice"
+  },
+  {
+   "id": "A2",
+   "nome": "Apertura (above the fold)"
+  },
+  {
+   "id": "A3",
+   "nome": "Fiducia e prova (social proof, trust signals)"
+  },
+  {
+   "id": "A4",
+   "nome": "Problema e soluzione"
+  },
+  {
+   "id": "A5",
+   "nome": "Vantaggi e prodotto"
+  },
+  {
+   "id": "A6",
+   "nome": "Offerta e processo"
+  },
+  {
+   "id": "A7",
+   "nome": "Rassicurazione e obiezioni"
+  },
+  {
+   "id": "A8",
+   "nome": "Azione e chiusura"
+  },
+  {
+   "id": "A9",
+   "nome": "Contenuto e risorse (più da sito che da landing)"
+  },
+  {
+   "id": "B",
+   "nome": "Formati di layout"
+  }
+ ],
+ "tipi": [
+  {
+   "n": 1,
+   "cat": "A1",
+   "en": "Announcement bar",
+   "it": "Barra di annuncio",
+   "funzione": "una riga in cima per un'offerta, una scadenza o una novità."
+  },
+  {
+   "n": 2,
+   "cat": "A1",
+   "en": "Header / Navbar",
+   "it": "Testata",
+   "funzione": "logo e menu; nelle landing spesso solo logo, per non far uscire."
+  },
+  {
+   "n": 3,
+   "cat": "A1",
+   "en": "Sticky header",
+   "it": "Testata fissa",
+   "funzione": "resta in alto mentre si scorre, con il bottone sempre visibile."
+  },
+  {
+   "n": 4,
+   "cat": "A1",
+   "en": "Breadcrumb",
+   "it": "Briciole di pane",
+   "funzione": "dice dove sei nel sito (pagine interne, non landing)."
+  },
+  {
+   "n": 5,
+   "cat": "A1",
+   "en": "Footer",
+   "it": "Piede",
+   "funzione": "link, dati legali, contatti; ultima occasione per agire."
+  },
+  {
+   "n": 6,
+   "cat": "A1",
+   "en": "Copyright / Legal bar",
+   "it": "Riga legale",
+   "funzione": "diritti, privacy, cookie, P.IVA."
+  },
+  {
+   "n": 7,
+   "cat": "A1",
+   "en": "Cookie banner",
+   "it": "Banner dei cookie",
+   "funzione": "consenso, obbligatorio per legge."
+  },
+  {
+   "n": 8,
+   "cat": "A2",
+   "en": "Above the fold",
+   "it": "Primo schermo",
+   "funzione": "tutto ciò che si vede senza scorrere; deve dire cosa, per chi, e cosa fare."
+  },
+  {
+   "n": 9,
+   "cat": "A2",
+   "en": "Hero",
+   "it": "Sezione d'apertura",
+   "funzione": "titolo, sottotitolo, bottone, immagine: la promessa principale."
+  },
+  {
+   "n": 10,
+   "cat": "A2",
+   "en": "Value proposition",
+   "it": "Proposta di valore",
+   "funzione": "la frase che dice perché scegliere te, spesso sotto l'hero."
+  },
+  {
+   "n": 11,
+   "cat": "A2",
+   "en": "Pre-headline / Eyebrow",
+   "it": "Occhiello o qualifica",
+   "funzione": "riga piccola sopra il titolo che seleziona il lettore."
+  },
+  {
+   "n": 12,
+   "cat": "A2",
+   "en": "VSL hero",
+   "it": "Primo schermo con video",
+   "funzione": "un video di vendita al posto dell'immagine."
+  },
+  {
+   "n": 13,
+   "cat": "A2",
+   "en": "Lead capture / Opt-in",
+   "it": "Modulo di cattura",
+   "funzione": "email in cambio di qualcosa (PDF, guida)."
+  },
+  {
+   "n": 14,
+   "cat": "A2",
+   "en": "Trust bar",
+   "it": "Barra di fiducia",
+   "funzione": "subito sotto l'hero: loghi, stelle, «oltre 100 clienti»."
+  },
+  {
+   "n": 15,
+   "cat": "A3",
+   "en": "Logo cloud / Logo wall",
+   "it": "Fila di loghi",
+   "funzione": "clienti o media noti, per dire «altri si fidano»."
+  },
+  {
+   "n": 16,
+   "cat": "A3",
+   "en": "Testimonials",
+   "it": "Testimonianze",
+   "funzione": "citazioni di clienti con nome, ruolo, foto."
+  },
+  {
+   "n": 17,
+   "cat": "A3",
+   "en": "Video testimonials",
+   "it": "Testimonianze video",
+   "funzione": "clienti che parlano in camera."
+  },
+  {
+   "n": 18,
+   "cat": "A3",
+   "en": "Reviews / Ratings",
+   "it": "Recensioni con punteggio",
+   "funzione": "stelle e numero di recensioni (Google, Trustpilot)."
+  },
+  {
+   "n": 19,
+   "cat": "A3",
+   "en": "Featured quote",
+   "it": "Citazione grande",
+   "funzione": "una sola testimonianza forte, a tutta larghezza."
+  },
+  {
+   "n": 20,
+   "cat": "A3",
+   "en": "Stats / Numbers",
+   "it": "Numeri chiave",
+   "funzione": "3-4 cifre grandi (anni, clienti, libri)."
+  },
+  {
+   "n": 21,
+   "cat": "A3",
+   "en": "Case study",
+   "it": "Caso studio",
+   "funzione": "un cliente, il problema, cosa hai fatto, il risultato."
+  },
+  {
+   "n": 22,
+   "cat": "A3",
+   "en": "Before / After",
+   "it": "Prima e dopo",
+   "funzione": "due stati a confronto."
+  },
+  {
+   "n": 23,
+   "cat": "A3",
+   "en": "Portfolio / Gallery",
+   "it": "Lavori / galleria",
+   "funzione": "esempi del lavoro."
+  },
+  {
+   "n": 24,
+   "cat": "A3",
+   "en": "As seen in / Press",
+   "it": "Visto su / stampa",
+   "funzione": "articoli e media."
+  },
+  {
+   "n": 25,
+   "cat": "A3",
+   "en": "Awards / Certifications / Badges",
+   "it": "Premi, certificazioni, bollini",
+   "funzione": "riconoscimenti e sicurezza (pagamenti, GDPR)."
+  },
+  {
+   "n": 26,
+   "cat": "A3",
+   "en": "Trust signals",
+   "it": "Segnali di fiducia",
+   "funzione": "insieme di garanzie, bollini, pagamenti sicuri vicino al bottone."
+  },
+  {
+   "n": 27,
+   "cat": "A4",
+   "en": "Problem / Pain points",
+   "it": "Problema",
+   "funzione": "i dolori del lettore, per farlo riconoscere."
+  },
+  {
+   "n": 28,
+   "cat": "A4",
+   "en": "Agitation",
+   "it": "Agitazione",
+   "funzione": "cosa succede se non risolve (tipico della risposta diretta)."
+  },
+  {
+   "n": 29,
+   "cat": "A4",
+   "en": "Solution / Introduction",
+   "it": "Soluzione",
+   "funzione": "presenta l'offerta come risposta al problema."
+  },
+  {
+   "n": 30,
+   "cat": "A4",
+   "en": "Unique mechanism",
+   "it": "Meccanismo unico",
+   "funzione": "perché funziona in modo diverso dagli altri."
+  },
+  {
+   "n": 31,
+   "cat": "A4",
+   "en": "Who it's for / not for",
+   "it": "Per chi è / per chi non è",
+   "funzione": "seleziona il lettore e riduce i clienti sbagliati."
+  },
+  {
+   "n": 32,
+   "cat": "A4",
+   "en": "Use cases",
+   "it": "Casi d'uso",
+   "funzione": "situazioni concrete in cui serve."
+  },
+  {
+   "n": 33,
+   "cat": "A5",
+   "en": "Features",
+   "it": "Caratteristiche",
+   "funzione": "cosa c'è dentro."
+  },
+  {
+   "n": 34,
+   "cat": "A5",
+   "en": "Benefits",
+   "it": "Benefici",
+   "funzione": "cosa ottieni (il risultato, non la caratteristica)."
+  },
+  {
+   "n": 35,
+   "cat": "A5",
+   "en": "Why choose us",
+   "it": "Perché noi",
+   "funzione": "ragioni per scegliere te sugli altri."
+  },
+  {
+   "n": 36,
+   "cat": "A5",
+   "en": "Services",
+   "it": "Servizi",
+   "funzione": "cosa offri, ciascuno con il suo beneficio."
+  },
+  {
+   "n": 37,
+   "cat": "A5",
+   "en": "Product details / Specs",
+   "it": "Dettagli e specifiche",
+   "funzione": "misure, formati, tempi."
+  },
+  {
+   "n": 38,
+   "cat": "A5",
+   "en": "Comparison",
+   "it": "Confronto",
+   "funzione": "tu contro gli altri (o contro il fai-da-te)."
+  },
+  {
+   "n": 39,
+   "cat": "A5",
+   "en": "Integrations",
+   "it": "Integrazioni / strumenti",
+   "funzione": "programmi e piattaforme con cui lavori."
+  },
+  {
+   "n": 40,
+   "cat": "A5",
+   "en": "Demo / Interactive preview",
+   "it": "Anteprima interattiva",
+   "funzione": "prova o sfoglia prima di comprare."
+  },
+  {
+   "n": 41,
+   "cat": "A5",
+   "en": "Video section",
+   "it": "Sezione video",
+   "funzione": "spiega o mostra in movimento."
+  },
+  {
+   "n": 42,
+   "cat": "A6",
+   "en": "What's included / Deliverables",
+   "it": "Cosa ricevi",
+   "funzione": "elenco preciso di ciò che arriva."
+  },
+  {
+   "n": 43,
+   "cat": "A6",
+   "en": "What's not included",
+   "it": "Cosa non c'è",
+   "funzione": "il confine dell'offerta."
+  },
+  {
+   "n": 44,
+   "cat": "A6",
+   "en": "How it works / Process",
+   "it": "Come funziona",
+   "funzione": "i passi, dal primo contatto alla consegna."
+  },
+  {
+   "n": 45,
+   "cat": "A6",
+   "en": "Timeline",
+   "it": "Linea del tempo",
+   "funzione": "date e durata."
+  },
+  {
+   "n": 46,
+   "cat": "A6",
+   "en": "Bonuses",
+   "it": "Bonus",
+   "funzione": "extra compresi."
+  },
+  {
+   "n": 47,
+   "cat": "A6",
+   "en": "Pricing",
+   "it": "Prezzi",
+   "funzione": "pacchetti a card con prezzo e bottone."
+  },
+  {
+   "n": 48,
+   "cat": "A6",
+   "en": "Pricing table / Feature matrix",
+   "it": "Tabella dei prezzi",
+   "funzione": "pacchetti × voci, per confrontarli."
+  },
+  {
+   "n": 49,
+   "cat": "A6",
+   "en": "Payment plans",
+   "it": "Piani di pagamento",
+   "funzione": "rate e modalità."
+  },
+  {
+   "n": 50,
+   "cat": "A6",
+   "en": "Calculator / ROI",
+   "it": "Calcolatore",
+   "funzione": "quanto costa o rende, con i numeri del lettore."
+  },
+  {
+   "n": 51,
+   "cat": "A6",
+   "en": "Urgency / Countdown",
+   "it": "Urgenza / conto alla rovescia",
+   "funzione": "scadenza o posti rimasti."
+  },
+  {
+   "n": 52,
+   "cat": "A6",
+   "en": "Scarcity / Availability",
+   "it": "Disponibilità",
+   "funzione": "posti liberi, prossimo slot."
+  },
+  {
+   "n": 53,
+   "cat": "A6",
+   "en": "Order form / Checkout",
+   "it": "Modulo d'ordine",
+   "funzione": "pagamento in pagina."
+  },
+  {
+   "n": 54,
+   "cat": "A6",
+   "en": "Order bump / Upsell",
+   "it": "Aggiunta all'ordine",
+   "funzione": "un extra offerto al momento dell'acquisto."
+  },
+  {
+   "n": 55,
+   "cat": "A7",
+   "en": "Guarantee / Risk reversal",
+   "it": "Garanzia",
+   "funzione": "toglie il rischio a chi compra."
+  },
+  {
+   "n": 56,
+   "cat": "A7",
+   "en": "FAQ",
+   "it": "Domande frequenti",
+   "funzione": "risponde ai dubbi prima che il lettore se ne vada."
+  },
+  {
+   "n": 57,
+   "cat": "A7",
+   "en": "Objection handling",
+   "it": "Obiezioni e risposte",
+   "funzione": "le 3-4 paure principali, una per una."
+  },
+  {
+   "n": 58,
+   "cat": "A7",
+   "en": "About / Founder story",
+   "it": "Chi sono / storia del fondatore",
+   "funzione": "la persona dietro l'offerta."
+  },
+  {
+   "n": 59,
+   "cat": "A7",
+   "en": "Team",
+   "it": "Squadra",
+   "funzione": "chi ci lavora."
+  },
+  {
+   "n": 60,
+   "cat": "A7",
+   "en": "Values / Mission",
+   "it": "Valori / missione",
+   "funzione": "in cosa credi."
+  },
+  {
+   "n": 61,
+   "cat": "A8",
+   "en": "CTA section / CTA banner",
+   "it": "Sezione di invito all'azione",
+   "funzione": "un titolo e un bottone, ripetuta durante la pagina."
+  },
+  {
+   "n": 62,
+   "cat": "A8",
+   "en": "Final CTA / Closing",
+   "it": "Chiusura",
+   "funzione": "riepilogo e ultima chiamata."
+  },
+  {
+   "n": 63,
+   "cat": "A8",
+   "en": "P.S.",
+   "it": "Poscritto",
+   "funzione": "riga finale che riprende il motivo principale."
+  },
+  {
+   "n": 64,
+   "cat": "A8",
+   "en": "Sticky CTA bar",
+   "it": "Barra fissa col bottone",
+   "funzione": "in basso sul telefono, sempre visibile."
+  },
+  {
+   "n": 65,
+   "cat": "A8",
+   "en": "Contact",
+   "it": "Contatti",
+   "funzione": "modulo, email, telefono, WhatsApp."
+  },
+  {
+   "n": 66,
+   "cat": "A8",
+   "en": "Floating chat / WhatsApp button",
+   "it": "Bottone chat galleggiante",
+   "funzione": "domanda veloce senza modulo."
+  },
+  {
+   "n": 67,
+   "cat": "A8",
+   "en": "Exit-intent popup",
+   "it": "Finestra all'uscita",
+   "funzione": "ultima offerta quando si sta per lasciare la pagina."
+  },
+  {
+   "n": 68,
+   "cat": "A8",
+   "en": "Newsletter signup",
+   "it": "Iscrizione newsletter",
+   "funzione": "per chi non è pronto a comprare."
+  },
+  {
+   "n": 69,
+   "cat": "A8",
+   "en": "Booking / Calendar",
+   "it": "Prenotazione",
+   "funzione": "scegli l'orario di una call."
+  },
+  {
+   "n": 70,
+   "cat": "A9",
+   "en": "Blog / Latest posts",
+   "it": "Articoli",
+   "funzione": "ultimi contenuti."
+  },
+  {
+   "n": 71,
+   "cat": "A9",
+   "en": "Resources / Downloads",
+   "it": "Risorse da scaricare",
+   "funzione": "guide, PDF."
+  },
+  {
+   "n": 72,
+   "cat": "A9",
+   "en": "Events / Webinar",
+   "it": "Eventi",
+   "funzione": "prossime date e iscrizione."
+  },
+  {
+   "n": 73,
+   "cat": "A9",
+   "en": "Location / Map",
+   "it": "Sede e mappa",
+   "funzione": "dove sei, orari."
+  },
+  {
+   "n": 74,
+   "cat": "A9",
+   "en": "Careers",
+   "it": "Lavora con noi",
+   "funzione": "posizioni aperte."
+  },
+  {
+   "n": 75,
+   "cat": "A9",
+   "en": "Changelog / News",
+   "it": "Novità",
+   "funzione": "aggiornamenti."
+  },
+  {
+   "n": 76,
+   "cat": "A9",
+   "en": "Thank-you page",
+   "it": "Pagina di ringraziamento",
+   "funzione": "cosa succede dopo l'invio."
+  },
+  {
+   "n": 77,
+   "cat": "B",
+   "en": "Image + text / Split",
+   "it": "Immagine e testo",
+   "funzione": "metà immagine, metà testo, affiancati."
+  },
+  {
+   "n": 78,
+   "cat": "B",
+   "en": "Alternating / Zig-zag",
+   "it": "Alternati",
+   "funzione": "righe immagine-testo che si invertono a ogni riga."
+  },
+  {
+   "n": 79,
+   "cat": "B",
+   "en": "Centered / Single column",
+   "it": "Colonna centrata",
+   "funzione": "testo al centro, per frasi forti o lettere."
+  },
+  {
+   "n": 80,
+   "cat": "B",
+   "en": "Icon list / Bullet points with icons",
+   "it": "Elenco con icone",
+   "funzione": "voci brevi con un'icona o una spunta."
+  },
+  {
+   "n": 81,
+   "cat": "B",
+   "en": "Feature grid / Card grid",
+   "it": "Griglia di card",
+   "funzione": "3-6 riquadri uguali."
+  },
+  {
+   "n": 82,
+   "cat": "B",
+   "en": "Columns (2-3-4)",
+   "it": "Colonne",
+   "funzione": "contenuti affiancati della stessa importanza."
+  },
+  {
+   "n": 83,
+   "cat": "B",
+   "en": "Bento grid",
+   "it": "Griglia bento",
+   "funzione": "riquadri di misure diverse."
+  },
+  {
+   "n": 84,
+   "cat": "B",
+   "en": "Carousel / Slider / Marquee",
+   "it": "Carosello / nastro",
+   "funzione": "scorre, orizzontale o in loop."
+  },
+  {
+   "n": 85,
+   "cat": "B",
+   "en": "Tabs",
+   "it": "Schede",
+   "funzione": "contenuti alternativi sotto linguette."
+  },
+  {
+   "n": 86,
+   "cat": "B",
+   "en": "Accordion",
+   "it": "Fisarmonica",
+   "funzione": "domande che si aprono (FAQ)."
+  },
+  {
+   "n": 87,
+   "cat": "B",
+   "en": "Table",
+   "it": "Tabella",
+   "funzione": "righe e colonne di confronto."
+  },
+  {
+   "n": 88,
+   "cat": "B",
+   "en": "Steps / Numbered list",
+   "it": "Passi numerati",
+   "funzione": "1-2-3 in fila o in colonna."
+  },
+  {
+   "n": 89,
+   "cat": "B",
+   "en": "Timeline (vertical)",
+   "it": "Linea del tempo verticale",
+   "funzione": "passi lungo una linea."
+  },
+  {
+   "n": 90,
+   "cat": "B",
+   "en": "Stats row",
+   "it": "Riga di numeri",
+   "funzione": "cifre grandi affiancate."
+  },
+  {
+   "n": 91,
+   "cat": "B",
+   "en": "Masonry gallery",
+   "it": "Galleria a mattoni",
+   "funzione": "immagini di altezze diverse."
+  },
+  {
+   "n": 92,
+   "cat": "B",
+   "en": "Full-bleed / Background image",
+   "it": "A tutta larghezza / con immagine di fondo",
+   "funzione": "sezione d'impatto."
+  },
+  {
+   "n": 93,
+   "cat": "B",
+   "en": "Banner / Strip",
+   "it": "Fascia",
+   "funzione": "sezione bassa e larga con una frase e un bottone."
+  },
+  {
+   "n": 94,
+   "cat": "B",
+   "en": "Sticky scroll / Scrollytelling",
+   "it": "Scorrimento con elemento fisso",
+   "funzione": "un'immagine resta ferma mentre il testo scorre."
+  },
+  {
+   "n": 95,
+   "cat": "B",
+   "en": "Long-form letter",
+   "it": "Lettera lunga",
+   "funzione": "testo continuo con sottotitoli (sales letter)."
+  },
+  {
+   "n": 96,
+   "cat": "B",
+   "en": "Checklist",
+   "it": "Lista di spunte",
+   "funzione": "cosa c'è dentro, punto per punto."
+  },
+  {
+   "n": 97,
+   "cat": "B",
+   "en": "Quote block",
+   "it": "Blocco citazione",
+   "funzione": "testo grande tra virgolette."
+  },
+  {
+   "n": 98,
+   "cat": "B",
+   "en": "Modal / Popup",
+   "it": "Finestra sopra la pagina",
+   "funzione": "contenuto che si apre sopra la pagina (offerta, modulo, video)."
+  },
+  {
+   "n": 99,
+   "cat": "B",
+   "en": "Sticky bar (top/bottom)",
+   "it": "Barra fissa",
+   "funzione": "sempre visibile, in alto o in basso."
+  },
+  {
+   "n": 100,
+   "cat": "B",
+   "en": "Form (inline / card / multi-step)",
+   "it": "Modulo",
+   "funzione": "in riga, in un riquadro o a più passaggi."
+  }
+ ],
+ "blocchi": [
+  {
+   "codice": "KX-apertura",
+   "fonte": "KX",
+   "nome": "KxApertura",
+   "funzioni": [
+    8,
+    9
+   ],
+   "formati": [
+    77
+   ],
+   "anteprima": "apertura/",
+   "sorgente": "src/components/vendita/KxApertura.astro",
+   "fuori": false
+  },
+  {
+   "codice": "KX-modulo",
+   "fonte": "KX",
+   "nome": "KxModulo",
+   "funzioni": [
+    13
+   ],
+   "formati": [
+    100,
+    77
+   ],
+   "anteprima": "modulo/",
+   "sorgente": "src/components/vendita/KxModulo.astro",
+   "fuori": false
+  },
+  {
+   "codice": "KX-problema",
+   "fonte": "KX",
+   "nome": "KxProblema",
+   "funzioni": [
+    27
+   ],
+   "formati": [
+    80
+   ],
+   "anteprima": "problema/",
+   "sorgente": "src/components/vendita/KxProblema.astro",
+   "fuori": false
+  },
+  {
+   "codice": "KX-meccanismo",
+   "fonte": "KX",
+   "nome": "KxMeccanismo",
+   "funzioni": [
+    30,
+    35
+   ],
+   "formati": [
+    82
+   ],
+   "anteprima": "meccanismo/",
+   "sorgente": "src/components/vendita/KxMeccanismo.astro",
+   "fuori": false
+  },
+  {
+   "codice": "KX-lavori",
+   "fonte": "KX",
+   "nome": "KxLavori",
+   "funzioni": [
+    23
+   ],
+   "formati": [
+    84,
+    81
+   ],
+   "anteprima": "lavori/",
+   "sorgente": "src/components/vendita/KxLavori.astro",
+   "fuori": false
+  },
+  {
+   "codice": "KX-voci",
+   "fonte": "KX",
+   "nome": "KxVoci",
+   "funzioni": [
+    16
+   ],
+   "formati": [
+    84
+   ],
+   "anteprima": "voci/",
+   "sorgente": "src/components/vendita/KxVoci.astro",
+   "fuori": false
+  },
+  {
+   "codice": "KX-chi",
+   "fonte": "KX",
+   "nome": "KxChi",
+   "funzioni": [
+    58
+   ],
+   "formati": [
+    77
+   ],
+   "anteprima": "chi/",
+   "sorgente": "src/components/vendita/KxChi.astro",
+   "fuori": false
+  },
+  {
+   "codice": "KX-cosa-ricevi",
+   "fonte": "KX",
+   "nome": "KxCosaRicevi",
+   "funzioni": [
+    42,
+    43
+   ],
+   "formati": [
+    96
+   ],
+   "anteprima": "cosa-ricevi/",
+   "sorgente": "src/components/vendita/KxCosaRicevi.astro",
+   "fuori": false
+  },
+  {
+   "codice": "KX-passi",
+   "fonte": "KX",
+   "nome": "KxPassi",
+   "funzioni": [
+    44
+   ],
+   "formati": [
+    88
+   ],
+   "anteprima": "passi/",
+   "sorgente": "src/components/vendita/KxPassi.astro",
+   "fuori": false
+  },
+  {
+   "codice": "KX-prezzo",
+   "fonte": "KX",
+   "nome": "KxPrezzo",
+   "funzioni": [
+    47,
+    51
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": "prezzo/",
+   "sorgente": "src/components/vendita/KxPrezzo.astro",
+   "fuori": false
+  },
+  {
+   "codice": "KX-garanzia",
+   "fonte": "KX",
+   "nome": "KxGaranzia",
+   "funzioni": [
+    55
+   ],
+   "formati": [
+    79
+   ],
+   "anteprima": "garanzia/",
+   "sorgente": "src/components/vendita/KxGaranzia.astro",
+   "fuori": false
+  },
+  {
+   "codice": "KX-faq",
+   "fonte": "KX",
+   "nome": "KxFaq",
+   "funzioni": [
+    56
+   ],
+   "formati": [
+    86
+   ],
+   "anteprima": "faq/",
+   "sorgente": "src/components/vendita/KxFaq.astro",
+   "fuori": false
+  },
+  {
+   "codice": "KX-chiusura",
+   "fonte": "KX",
+   "nome": "KxChiusura",
+   "funzioni": [
+    62
+   ],
+   "formati": [
+    79
+   ],
+   "anteprima": "chiusura/",
+   "sorgente": "src/components/vendita/KxChiusura.astro",
+   "fuori": false
+  },
+  {
+   "codice": "HU-announcements-1",
+   "fonte": "HU",
+   "nome": "HyperUI announcements 1",
+   "funzioni": [
+    1
+   ],
+   "formati": [
+    93
+   ],
+   "anteprima": "hyperui/announcements/1.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/announcements/1.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-announcements-2",
+   "fonte": "HU",
+   "nome": "HyperUI announcements 2",
+   "funzioni": [
+    1
+   ],
+   "formati": [
+    93
+   ],
+   "anteprima": "hyperui/announcements/2.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/announcements/2.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-announcements-3",
+   "fonte": "HU",
+   "nome": "HyperUI announcements 3",
+   "funzioni": [
+    1
+   ],
+   "formati": [
+    93
+   ],
+   "anteprima": "hyperui/announcements/3.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/announcements/3.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-announcements-4",
+   "fonte": "HU",
+   "nome": "HyperUI announcements 4",
+   "funzioni": [
+    1
+   ],
+   "formati": [
+    93
+   ],
+   "anteprima": "hyperui/announcements/4.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/announcements/4.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-announcements-5",
+   "fonte": "HU",
+   "nome": "HyperUI announcements 5",
+   "funzioni": [
+    1
+   ],
+   "formati": [
+    93
+   ],
+   "anteprima": "hyperui/announcements/5.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/announcements/5.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-announcements-6",
+   "fonte": "HU",
+   "nome": "HyperUI announcements 6",
+   "funzioni": [
+    1
+   ],
+   "formati": [
+    93
+   ],
+   "anteprima": "hyperui/announcements/6.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/announcements/6.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-banners-1",
+   "fonte": "HU",
+   "nome": "HyperUI banners 1",
+   "funzioni": [
+    1
+   ],
+   "formati": [
+    99
+   ],
+   "anteprima": "hyperui/banners/1.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/banners/1.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-banners-2",
+   "fonte": "HU",
+   "nome": "HyperUI banners 2",
+   "funzioni": [
+    1
+   ],
+   "formati": [
+    99
+   ],
+   "anteprima": "hyperui/banners/2.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/banners/2.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-banners-3",
+   "fonte": "HU",
+   "nome": "HyperUI banners 3",
+   "funzioni": [
+    1
+   ],
+   "formati": [
+    99
+   ],
+   "anteprima": "hyperui/banners/3.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/banners/3.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-blog-cards-1",
+   "fonte": "HU",
+   "nome": "HyperUI blog-cards 1",
+   "funzioni": [
+    70
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": "hyperui/blog-cards/1.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/blog-cards/1.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-blog-cards-2",
+   "fonte": "HU",
+   "nome": "HyperUI blog-cards 2",
+   "funzioni": [
+    70
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": "hyperui/blog-cards/2.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/blog-cards/2.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-blog-cards-3",
+   "fonte": "HU",
+   "nome": "HyperUI blog-cards 3",
+   "funzioni": [
+    70
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": "hyperui/blog-cards/3.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/blog-cards/3.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-blog-cards-4",
+   "fonte": "HU",
+   "nome": "HyperUI blog-cards 4",
+   "funzioni": [
+    70
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": "hyperui/blog-cards/4.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/blog-cards/4.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-blog-cards-5",
+   "fonte": "HU",
+   "nome": "HyperUI blog-cards 5",
+   "funzioni": [
+    70
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": "hyperui/blog-cards/5.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/blog-cards/5.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-blog-cards-6",
+   "fonte": "HU",
+   "nome": "HyperUI blog-cards 6",
+   "funzioni": [
+    70
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": "hyperui/blog-cards/6.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/blog-cards/6.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-blog-cards-7",
+   "fonte": "HU",
+   "nome": "HyperUI blog-cards 7",
+   "funzioni": [
+    70
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": "hyperui/blog-cards/7.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/blog-cards/7.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-buttons-1",
+   "fonte": "HU",
+   "nome": "HyperUI buttons 1",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/buttons/1.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/buttons/1.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-buttons-2",
+   "fonte": "HU",
+   "nome": "HyperUI buttons 2",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/buttons/2.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/buttons/2.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-buttons-3",
+   "fonte": "HU",
+   "nome": "HyperUI buttons 3",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/buttons/3.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/buttons/3.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-buttons-4",
+   "fonte": "HU",
+   "nome": "HyperUI buttons 4",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/buttons/4.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/buttons/4.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-buttons-5",
+   "fonte": "HU",
+   "nome": "HyperUI buttons 5",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/buttons/5.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/buttons/5.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-cards-1",
+   "fonte": "HU",
+   "nome": "HyperUI cards 1",
+   "funzioni": [
+    33
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": "hyperui/cards/1.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/cards/1.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-cards-2",
+   "fonte": "HU",
+   "nome": "HyperUI cards 2",
+   "funzioni": [
+    33
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": "hyperui/cards/2.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/cards/2.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-cards-3",
+   "fonte": "HU",
+   "nome": "HyperUI cards 3",
+   "funzioni": [
+    33
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": "hyperui/cards/3.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/cards/3.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-cards-4",
+   "fonte": "HU",
+   "nome": "HyperUI cards 4",
+   "funzioni": [
+    33
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": "hyperui/cards/4.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/cards/4.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-cards-5",
+   "fonte": "HU",
+   "nome": "HyperUI cards 5",
+   "funzioni": [
+    33
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": "hyperui/cards/5.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/cards/5.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-cards-6",
+   "fonte": "HU",
+   "nome": "HyperUI cards 6",
+   "funzioni": [
+    33
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": "hyperui/cards/6.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/cards/6.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-cards-7",
+   "fonte": "HU",
+   "nome": "HyperUI cards 7",
+   "funzioni": [
+    33
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": "hyperui/cards/7.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/cards/7.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-cards-8",
+   "fonte": "HU",
+   "nome": "HyperUI cards 8",
+   "funzioni": [
+    33
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": "hyperui/cards/8.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/cards/8.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-cards-9",
+   "fonte": "HU",
+   "nome": "HyperUI cards 9",
+   "funzioni": [
+    33
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": "hyperui/cards/9.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/cards/9.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-carts-1",
+   "fonte": "HU",
+   "nome": "HyperUI carts 1",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/carts/1.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/carts/1.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-carts-2",
+   "fonte": "HU",
+   "nome": "HyperUI carts 2",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/carts/2.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/carts/2.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-carts-3",
+   "fonte": "HU",
+   "nome": "HyperUI carts 3",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/carts/3.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/carts/3.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-contact-forms-1",
+   "fonte": "HU",
+   "nome": "HyperUI contact-forms 1",
+   "funzioni": [
+    65
+   ],
+   "formati": [
+    100
+   ],
+   "anteprima": "hyperui/contact-forms/1.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/contact-forms/1.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-contact-forms-2",
+   "fonte": "HU",
+   "nome": "HyperUI contact-forms 2",
+   "funzioni": [
+    65
+   ],
+   "formati": [
+    100
+   ],
+   "anteprima": "hyperui/contact-forms/2.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/contact-forms/2.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-contact-forms-3",
+   "fonte": "HU",
+   "nome": "HyperUI contact-forms 3",
+   "funzioni": [
+    65
+   ],
+   "formati": [
+    100
+   ],
+   "anteprima": "hyperui/contact-forms/3.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/contact-forms/3.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-contact-forms-4",
+   "fonte": "HU",
+   "nome": "HyperUI contact-forms 4",
+   "funzioni": [
+    65
+   ],
+   "formati": [
+    100
+   ],
+   "anteprima": "hyperui/contact-forms/4.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/contact-forms/4.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-contact-forms-5",
+   "fonte": "HU",
+   "nome": "HyperUI contact-forms 5",
+   "funzioni": [
+    65
+   ],
+   "formati": [
+    100
+   ],
+   "anteprima": "hyperui/contact-forms/5.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/contact-forms/5.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-ctas-1",
+   "fonte": "HU",
+   "nome": "HyperUI ctas 1",
+   "funzioni": [
+    61
+   ],
+   "formati": [
+    77
+   ],
+   "anteprima": "hyperui/ctas/1.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/ctas/1.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-ctas-2",
+   "fonte": "HU",
+   "nome": "HyperUI ctas 2",
+   "funzioni": [
+    61
+   ],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/ctas/2.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/ctas/2.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-ctas-3",
+   "fonte": "HU",
+   "nome": "HyperUI ctas 3",
+   "funzioni": [
+    61
+   ],
+   "formati": [
+    77
+   ],
+   "anteprima": "hyperui/ctas/3.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/ctas/3.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-ctas-4",
+   "fonte": "HU",
+   "nome": "HyperUI ctas 4",
+   "funzioni": [
+    61
+   ],
+   "formati": [
+    77
+   ],
+   "anteprima": "hyperui/ctas/4.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/ctas/4.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-empty-content-1",
+   "fonte": "HU",
+   "nome": "HyperUI empty-content 1",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/empty-content/1.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/empty-content/1.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-empty-content-2",
+   "fonte": "HU",
+   "nome": "HyperUI empty-content 2",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/empty-content/2.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/empty-content/2.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-empty-content-3",
+   "fonte": "HU",
+   "nome": "HyperUI empty-content 3",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/empty-content/3.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/empty-content/3.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-empty-content-4",
+   "fonte": "HU",
+   "nome": "HyperUI empty-content 4",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/empty-content/4.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/empty-content/4.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-empty-content-5",
+   "fonte": "HU",
+   "nome": "HyperUI empty-content 5",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/empty-content/5.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/empty-content/5.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-faqs-1",
+   "fonte": "HU",
+   "nome": "HyperUI faqs 1",
+   "funzioni": [
+    56
+   ],
+   "formati": [
+    86
+   ],
+   "anteprima": "hyperui/faqs/1.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/faqs/1.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-faqs-2",
+   "fonte": "HU",
+   "nome": "HyperUI faqs 2",
+   "funzioni": [
+    56
+   ],
+   "formati": [
+    86
+   ],
+   "anteprima": "hyperui/faqs/2.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/faqs/2.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-faqs-3",
+   "fonte": "HU",
+   "nome": "HyperUI faqs 3",
+   "funzioni": [
+    56
+   ],
+   "formati": [
+    86
+   ],
+   "anteprima": "hyperui/faqs/3.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/faqs/3.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-feature-grids-1",
+   "fonte": "HU",
+   "nome": "HyperUI feature-grids 1",
+   "funzioni": [
+    33,
+    34
+   ],
+   "formati": [
+    81,
+    80
+   ],
+   "anteprima": "hyperui/feature-grids/1.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/feature-grids/1.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-feature-grids-2",
+   "fonte": "HU",
+   "nome": "HyperUI feature-grids 2",
+   "funzioni": [
+    33,
+    34
+   ],
+   "formati": [
+    81,
+    80
+   ],
+   "anteprima": "hyperui/feature-grids/2.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/feature-grids/2.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-feature-grids-3",
+   "fonte": "HU",
+   "nome": "HyperUI feature-grids 3",
+   "funzioni": [
+    33,
+    34
+   ],
+   "formati": [
+    81,
+    80
+   ],
+   "anteprima": "hyperui/feature-grids/3.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/feature-grids/3.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-feature-grids-4",
+   "fonte": "HU",
+   "nome": "HyperUI feature-grids 4",
+   "funzioni": [
+    33,
+    34
+   ],
+   "formati": [
+    81,
+    80
+   ],
+   "anteprima": "hyperui/feature-grids/4.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/feature-grids/4.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-footers-1",
+   "fonte": "HU",
+   "nome": "HyperUI footers 1",
+   "funzioni": [
+    5
+   ],
+   "formati": [
+    82
+   ],
+   "anteprima": "hyperui/footers/1.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/footers/1.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-footers-2",
+   "fonte": "HU",
+   "nome": "HyperUI footers 2",
+   "funzioni": [
+    5
+   ],
+   "formati": [
+    82
+   ],
+   "anteprima": "hyperui/footers/2.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/footers/2.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-footers-3",
+   "fonte": "HU",
+   "nome": "HyperUI footers 3",
+   "funzioni": [
+    5
+   ],
+   "formati": [
+    82
+   ],
+   "anteprima": "hyperui/footers/3.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/footers/3.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-footers-4",
+   "fonte": "HU",
+   "nome": "HyperUI footers 4",
+   "funzioni": [
+    5
+   ],
+   "formati": [
+    82
+   ],
+   "anteprima": "hyperui/footers/4.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/footers/4.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-footers-5",
+   "fonte": "HU",
+   "nome": "HyperUI footers 5",
+   "funzioni": [
+    5
+   ],
+   "formati": [
+    82
+   ],
+   "anteprima": "hyperui/footers/5.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/footers/5.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-footers-6",
+   "fonte": "HU",
+   "nome": "HyperUI footers 6",
+   "funzioni": [
+    5
+   ],
+   "formati": [
+    82
+   ],
+   "anteprima": "hyperui/footers/6.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/footers/6.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-footers-7",
+   "fonte": "HU",
+   "nome": "HyperUI footers 7",
+   "funzioni": [
+    5
+   ],
+   "formati": [
+    82
+   ],
+   "anteprima": "hyperui/footers/7.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/footers/7.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-footers-8",
+   "fonte": "HU",
+   "nome": "HyperUI footers 8",
+   "funzioni": [
+    5
+   ],
+   "formati": [
+    82
+   ],
+   "anteprima": "hyperui/footers/8.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/footers/8.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-footers-9",
+   "fonte": "HU",
+   "nome": "HyperUI footers 9",
+   "funzioni": [
+    5
+   ],
+   "formati": [
+    82
+   ],
+   "anteprima": "hyperui/footers/9.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/footers/9.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-footers-10",
+   "fonte": "HU",
+   "nome": "HyperUI footers 10",
+   "funzioni": [
+    5
+   ],
+   "formati": [
+    82
+   ],
+   "anteprima": "hyperui/footers/10.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/footers/10.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-footers-11",
+   "fonte": "HU",
+   "nome": "HyperUI footers 11",
+   "funzioni": [
+    5
+   ],
+   "formati": [
+    82
+   ],
+   "anteprima": "hyperui/footers/11.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/footers/11.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-footers-12",
+   "fonte": "HU",
+   "nome": "HyperUI footers 12",
+   "funzioni": [
+    5
+   ],
+   "formati": [
+    82
+   ],
+   "anteprima": "hyperui/footers/12.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/footers/12.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-headers-1",
+   "fonte": "HU",
+   "nome": "HyperUI headers 1",
+   "funzioni": [
+    2
+   ],
+   "formati": [],
+   "anteprima": "hyperui/headers/1.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/headers/1.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-headers-2",
+   "fonte": "HU",
+   "nome": "HyperUI headers 2",
+   "funzioni": [
+    2
+   ],
+   "formati": [],
+   "anteprima": "hyperui/headers/2.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/headers/2.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-headers-3",
+   "fonte": "HU",
+   "nome": "HyperUI headers 3",
+   "funzioni": [
+    2
+   ],
+   "formati": [],
+   "anteprima": "hyperui/headers/3.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/headers/3.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-headers-4",
+   "fonte": "HU",
+   "nome": "HyperUI headers 4",
+   "funzioni": [
+    2
+   ],
+   "formati": [],
+   "anteprima": "hyperui/headers/4.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/headers/4.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-logo-clouds-1",
+   "fonte": "HU",
+   "nome": "HyperUI logo-clouds 1",
+   "funzioni": [
+    15
+   ],
+   "formati": [
+    82
+   ],
+   "anteprima": "hyperui/logo-clouds/1.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/logo-clouds/1.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-logo-clouds-2",
+   "fonte": "HU",
+   "nome": "HyperUI logo-clouds 2",
+   "funzioni": [
+    15
+   ],
+   "formati": [
+    82
+   ],
+   "anteprima": "hyperui/logo-clouds/2.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/logo-clouds/2.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-logo-clouds-3",
+   "fonte": "HU",
+   "nome": "HyperUI logo-clouds 3",
+   "funzioni": [
+    15
+   ],
+   "formati": [
+    82
+   ],
+   "anteprima": "hyperui/logo-clouds/3.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/logo-clouds/3.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-logo-clouds-4",
+   "fonte": "HU",
+   "nome": "HyperUI logo-clouds 4",
+   "funzioni": [
+    15
+   ],
+   "formati": [
+    82
+   ],
+   "anteprima": "hyperui/logo-clouds/4.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/logo-clouds/4.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-newsletter-signup-1",
+   "fonte": "HU",
+   "nome": "HyperUI newsletter-signup 1",
+   "funzioni": [
+    68
+   ],
+   "formati": [
+    100
+   ],
+   "anteprima": "hyperui/newsletter-signup/1.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/newsletter-signup/1.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-newsletter-signup-2",
+   "fonte": "HU",
+   "nome": "HyperUI newsletter-signup 2",
+   "funzioni": [
+    68
+   ],
+   "formati": [
+    100
+   ],
+   "anteprima": "hyperui/newsletter-signup/2.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/newsletter-signup/2.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-polls-1",
+   "fonte": "HU",
+   "nome": "HyperUI polls 1",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/polls/1.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/polls/1.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-polls-2",
+   "fonte": "HU",
+   "nome": "HyperUI polls 2",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/polls/2.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/polls/2.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-polls-3",
+   "fonte": "HU",
+   "nome": "HyperUI polls 3",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/polls/3.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/polls/3.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-pricing-1",
+   "fonte": "HU",
+   "nome": "HyperUI pricing 1",
+   "funzioni": [
+    47
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": "hyperui/pricing/1.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/pricing/1.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-pricing-2",
+   "fonte": "HU",
+   "nome": "HyperUI pricing 2",
+   "funzioni": [
+    47
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": "hyperui/pricing/2.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/pricing/2.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-product-cards-1",
+   "fonte": "HU",
+   "nome": "HyperUI product-cards 1",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/product-cards/1.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/product-cards/1.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-product-cards-2",
+   "fonte": "HU",
+   "nome": "HyperUI product-cards 2",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/product-cards/2.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/product-cards/2.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-product-cards-3",
+   "fonte": "HU",
+   "nome": "HyperUI product-cards 3",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/product-cards/3.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/product-cards/3.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-product-cards-4",
+   "fonte": "HU",
+   "nome": "HyperUI product-cards 4",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/product-cards/4.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/product-cards/4.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-product-cards-5",
+   "fonte": "HU",
+   "nome": "HyperUI product-cards 5",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/product-cards/5.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/product-cards/5.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-product-cards-6",
+   "fonte": "HU",
+   "nome": "HyperUI product-cards 6",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/product-cards/6.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/product-cards/6.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-product-cards-7",
+   "fonte": "HU",
+   "nome": "HyperUI product-cards 7",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/product-cards/7.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/product-cards/7.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-product-cards-8",
+   "fonte": "HU",
+   "nome": "HyperUI product-cards 8",
+   "funzioni": [],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/product-cards/8.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/product-cards/8.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-product-collections-1",
+   "fonte": "HU",
+   "nome": "HyperUI product-collections 1",
+   "funzioni": [],
+   "formati": [
+    77
+   ],
+   "anteprima": "hyperui/product-collections/1.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/product-collections/1.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-product-collections-2",
+   "fonte": "HU",
+   "nome": "HyperUI product-collections 2",
+   "funzioni": [],
+   "formati": [
+    77
+   ],
+   "anteprima": "hyperui/product-collections/2.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/product-collections/2.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-product-collections-3",
+   "fonte": "HU",
+   "nome": "HyperUI product-collections 3",
+   "funzioni": [],
+   "formati": [
+    77
+   ],
+   "anteprima": "hyperui/product-collections/3.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/product-collections/3.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-product-collections-4",
+   "fonte": "HU",
+   "nome": "HyperUI product-collections 4",
+   "funzioni": [],
+   "formati": [
+    77
+   ],
+   "anteprima": "hyperui/product-collections/4.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/product-collections/4.html",
+   "fuori": true
+  },
+  {
+   "codice": "HU-sections-1",
+   "fonte": "HU",
+   "nome": "HyperUI sections 1",
+   "funzioni": [
+    9
+   ],
+   "formati": [
+    77
+   ],
+   "anteprima": "hyperui/sections/1.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/sections/1.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-sections-2",
+   "fonte": "HU",
+   "nome": "HyperUI sections 2",
+   "funzioni": [
+    9
+   ],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/sections/2.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/sections/2.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-sections-3",
+   "fonte": "HU",
+   "nome": "HyperUI sections 3",
+   "funzioni": [
+    9
+   ],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/sections/3.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/sections/3.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-sections-4",
+   "fonte": "HU",
+   "nome": "HyperUI sections 4",
+   "funzioni": [
+    9
+   ],
+   "formati": [
+    79
+   ],
+   "anteprima": "hyperui/sections/4.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/sections/4.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-stats-1",
+   "fonte": "HU",
+   "nome": "HyperUI stats 1",
+   "funzioni": [
+    20
+   ],
+   "formati": [
+    90
+   ],
+   "anteprima": "hyperui/stats/1.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/stats/1.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-stats-2",
+   "fonte": "HU",
+   "nome": "HyperUI stats 2",
+   "funzioni": [
+    20
+   ],
+   "formati": [
+    90
+   ],
+   "anteprima": "hyperui/stats/2.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/stats/2.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-stats-3",
+   "fonte": "HU",
+   "nome": "HyperUI stats 3",
+   "funzioni": [
+    20
+   ],
+   "formati": [
+    90
+   ],
+   "anteprima": "hyperui/stats/3.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/stats/3.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-team-sections-1",
+   "fonte": "HU",
+   "nome": "HyperUI team-sections 1",
+   "funzioni": [
+    59
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": "hyperui/team-sections/1.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/team-sections/1.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-team-sections-2",
+   "fonte": "HU",
+   "nome": "HyperUI team-sections 2",
+   "funzioni": [
+    59
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": "hyperui/team-sections/2.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/team-sections/2.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-team-sections-3",
+   "fonte": "HU",
+   "nome": "HyperUI team-sections 3",
+   "funzioni": [
+    59
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": "hyperui/team-sections/3.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/team-sections/3.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-testimonials-1",
+   "fonte": "HU",
+   "nome": "HyperUI testimonials 1",
+   "funzioni": [
+    16
+   ],
+   "formati": [
+    97
+   ],
+   "anteprima": "hyperui/testimonials/1.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/testimonials/1.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-testimonials-2",
+   "fonte": "HU",
+   "nome": "HyperUI testimonials 2",
+   "funzioni": [
+    16
+   ],
+   "formati": [
+    77
+   ],
+   "anteprima": "hyperui/testimonials/2.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/testimonials/2.html",
+   "fuori": false
+  },
+  {
+   "codice": "HU-testimonials-3",
+   "fonte": "HU",
+   "nome": "HyperUI testimonials 3",
+   "funzioni": [
+    16
+   ],
+   "formati": [
+    97
+   ],
+   "anteprima": "hyperui/testimonials/3.html",
+   "sorgente": "https://github.com/markmead/hyperui/blob/main/public/examples/marketing/testimonials/3.html",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Announcement",
+   "fonte": "AW",
+   "nome": "AstroWind Announcement",
+   "funzioni": [
+    1
+   ],
+   "formati": [
+    93
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Announcement.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Header",
+   "fonte": "AW",
+   "nome": "AstroWind Header",
+   "funzioni": [
+    2
+   ],
+   "formati": [],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Header.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Footer",
+   "fonte": "AW",
+   "nome": "AstroWind Footer",
+   "funzioni": [
+    5
+   ],
+   "formati": [
+    82
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Footer.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Hero",
+   "fonte": "AW",
+   "nome": "AstroWind Hero",
+   "funzioni": [
+    9
+   ],
+   "formati": [
+    77
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Hero.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Hero2",
+   "fonte": "AW",
+   "nome": "AstroWind Hero2",
+   "funzioni": [
+    9
+   ],
+   "formati": [
+    79
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Hero2.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-HeroText",
+   "fonte": "AW",
+   "nome": "AstroWind HeroText",
+   "funzioni": [
+    9
+   ],
+   "formati": [
+    79
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/HeroText.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Contact",
+   "fonte": "AW",
+   "nome": "AstroWind Contact",
+   "funzioni": [
+    65
+   ],
+   "formati": [
+    100
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Contact.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Newsletter",
+   "fonte": "AW",
+   "nome": "AstroWind Newsletter",
+   "funzioni": [
+    68
+   ],
+   "formati": [
+    100
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Newsletter.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Features",
+   "fonte": "AW",
+   "nome": "AstroWind Features",
+   "funzioni": [
+    33
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Features.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Features2",
+   "fonte": "AW",
+   "nome": "AstroWind Features2",
+   "funzioni": [
+    34
+   ],
+   "formati": [
+    80
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Features2.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Features3",
+   "fonte": "AW",
+   "nome": "AstroWind Features3",
+   "funzioni": [
+    33
+   ],
+   "formati": [
+    77
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Features3.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-FeatureTabs",
+   "fonte": "AW",
+   "nome": "AstroWind FeatureTabs",
+   "funzioni": [
+    33
+   ],
+   "formati": [
+    85
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/FeatureTabs.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Content",
+   "fonte": "AW",
+   "nome": "AstroWind Content",
+   "funzioni": [
+    29
+   ],
+   "formati": [
+    78
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Content.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Comparison",
+   "fonte": "AW",
+   "nome": "AstroWind Comparison",
+   "funzioni": [
+    38
+   ],
+   "formati": [
+    87
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Comparison.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Bento",
+   "fonte": "AW",
+   "nome": "AstroWind Bento",
+   "funzioni": [
+    33
+   ],
+   "formati": [
+    83
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Bento.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Gallery",
+   "fonte": "AW",
+   "nome": "AstroWind Gallery",
+   "funzioni": [
+    23
+   ],
+   "formati": [
+    91
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Gallery.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Projects",
+   "fonte": "AW",
+   "nome": "AstroWind Projects",
+   "funzioni": [
+    23
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Projects.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Video",
+   "fonte": "AW",
+   "nome": "AstroWind Video",
+   "funzioni": [
+    41
+   ],
+   "formati": [
+    92
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Video.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Testimonials",
+   "fonte": "AW",
+   "nome": "AstroWind Testimonials",
+   "funzioni": [
+    16
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Testimonials.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Quote",
+   "fonte": "AW",
+   "nome": "AstroWind Quote",
+   "funzioni": [
+    19
+   ],
+   "formati": [
+    97
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Quote.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-SocialProof",
+   "fonte": "AW",
+   "nome": "AstroWind SocialProof",
+   "funzioni": [
+    20
+   ],
+   "formati": [
+    90
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/SocialProof.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Brands",
+   "fonte": "AW",
+   "nome": "AstroWind Brands",
+   "funzioni": [
+    15
+   ],
+   "formati": [
+    82
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Brands.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Stats",
+   "fonte": "AW",
+   "nome": "AstroWind Stats",
+   "funzioni": [
+    20
+   ],
+   "formati": [
+    90
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Stats.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Integrations",
+   "fonte": "AW",
+   "nome": "AstroWind Integrations",
+   "funzioni": [
+    39
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Integrations.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Team",
+   "fonte": "AW",
+   "nome": "AstroWind Team",
+   "funzioni": [
+    59
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Team.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Steps",
+   "fonte": "AW",
+   "nome": "AstroWind Steps",
+   "funzioni": [
+    44
+   ],
+   "formati": [
+    88
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Steps.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Steps2",
+   "fonte": "AW",
+   "nome": "AstroWind Steps2",
+   "funzioni": [
+    44
+   ],
+   "formati": [
+    77
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Steps2.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Timeline",
+   "fonte": "AW",
+   "nome": "AstroWind Timeline",
+   "funzioni": [
+    45
+   ],
+   "formati": [
+    89
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Timeline.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-QuickStart",
+   "fonte": "AW",
+   "nome": "AstroWind QuickStart",
+   "funzioni": [
+    44
+   ],
+   "formati": [
+    88
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/QuickStart.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Pricing",
+   "fonte": "AW",
+   "nome": "AstroWind Pricing",
+   "funzioni": [
+    47
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Pricing.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Countdown",
+   "fonte": "AW",
+   "nome": "AstroWind Countdown",
+   "funzioni": [
+    51
+   ],
+   "formati": [
+    93
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Countdown.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-StickyCTA",
+   "fonte": "AW",
+   "nome": "AstroWind StickyCTA",
+   "funzioni": [
+    64
+   ],
+   "formati": [
+    99
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/StickyCTA.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-FAQs",
+   "fonte": "AW",
+   "nome": "AstroWind FAQs",
+   "funzioni": [
+    56
+   ],
+   "formati": [
+    86
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/FAQs.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-CallToAction",
+   "fonte": "AW",
+   "nome": "AstroWind CallToAction",
+   "funzioni": [
+    61
+   ],
+   "formati": [
+    93
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/CallToAction.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-Note",
+   "fonte": "AW",
+   "nome": "AstroWind Note",
+   "funzioni": [
+    61
+   ],
+   "formati": [
+    93
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/Note.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-BlogHighlightedPosts",
+   "fonte": "AW",
+   "nome": "AstroWind BlogHighlightedPosts",
+   "funzioni": [
+    70
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/BlogHighlightedPosts.astro",
+   "fuori": false
+  },
+  {
+   "codice": "AW-BlogLatestPosts",
+   "fonte": "AW",
+   "nome": "AstroWind BlogLatestPosts",
+   "funzioni": [
+    70
+   ],
+   "formati": [
+    81
+   ],
+   "anteprima": null,
+   "sorgente": "https://github.com/arthelokyo/astrowind/blob/main/src/components/widgets/BlogLatestPosts.astro",
+   "fuori": false
+  }
+ ]
+}
