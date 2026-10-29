@@ -64,14 +64,23 @@ const fuori = blocchi.filter((b) => b.fuori);
   </main>
   <script>
     const m = document.querySelector<HTMLElement>(".cat")!;
-    document.querySelectorAll<HTMLIFrameElement>(".cat-w iframe").forEach((f) => {
-      const misura = () => {
-        try { f.parentElement!.style.setProperty("--h", `${Math.min(f.contentDocument!.body.offsetHeight + 2, 900)}px`); } catch { /* altezza di base */ }
-      };
-      f.addEventListener("load", () => { misura(); setTimeout(misura, 600); });
-    });
+    // Altezza vera del blocco alla larghezza della vista scelta (390 o 1280): si rimisura a ogni cambio di vista.
+    const misura = (f: HTMLIFrameElement) => {
+      try {
+        f.style.height = "60px";
+        const d = f.contentDocument!;
+        // Anche gli elementi fissi o assoluti (barre di annuncio): si prende il fondo più basso.
+        let h = d.body.offsetHeight;
+        d.body.querySelectorAll("*").forEach((el) => { h = Math.max(h, el.getBoundingClientRect().bottom); });
+        f.parentElement!.style.setProperty("--h", `${Math.min(Math.ceil(h) + 2, 1200)}px`);
+        f.style.height = "";
+      } catch { /* altezza di base */ }
+    };
+    const frames = document.querySelectorAll<HTMLIFrameElement>(".cat-w iframe");
+    frames.forEach((f) => f.addEventListener("load", () => { misura(f); setTimeout(() => misura(f), 600); }));
     document.querySelectorAll<HTMLButtonElement>(".cat-bar button").forEach((b) => b.addEventListener("click", () => {
       m.dataset.vista = b.dataset.v;
+      requestAnimationFrame(() => frames.forEach(misura));
       document.querySelectorAll(".cat-bar button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
     }));
     document.getElementById("formato")!.addEventListener("change", (e) => {
